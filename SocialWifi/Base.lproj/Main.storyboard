@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller2-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController2" customModule="SocialWifi" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aNR-ad-Zxc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PGt-ZI-5J6" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="PGt-ZI-5J6" firstAttribute="leading" secondItem="YsC-HM-oOg" secondAttribute="leading" id="3XM-ce-Yme"/>
+                            <constraint firstItem="PGt-ZI-5J6" firstAttribute="top" secondItem="aNR-ad-Zxc" secondAttribute="top" id="9vx-nz-HaX"/>
+                            <constraint firstItem="PGt-ZI-5J6" firstAttribute="bottom" secondItem="YsC-HM-oOg" secondAttribute="bottom" id="Zmr-18-8Zw"/>
+                            <constraint firstItem="PGt-ZI-5J6" firstAttribute="trailing" secondItem="YsC-HM-oOg" secondAttribute="trailing" id="eqm-Ys-FUw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="YsC-HM-oOg"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="PGt-ZI-5J6" id="vT7-9Y-WY4"/>
+                        <segue destination="0Rb-ea-tXj" kind="presentation" id="pIb-BP-juy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="76.911544227886068"/>
+        </scene>
+        <!--AddPopupControllerView-->
+        <scene sceneID="EQQ-m4-SEc">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AddPopupControllerView" id="0Rb-ea-tXj" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gG0-mQ-mHr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="762" y="-16"/>
+        </scene>
+    </scenes>
+</document>

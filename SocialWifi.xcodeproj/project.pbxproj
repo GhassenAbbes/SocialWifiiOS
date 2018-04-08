@@ -1,0 +1,472 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		391375BE206D92880054A8C3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 391375BD206D92880054A8C3 /* CoreLocation.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		395BDECF206FEF5B008296C3 /* AddPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395BDECE206FEF5B008296C3 /* AddPopupViewController.swift */; };
+		395BDED5206FFD31008296C3 /* AddPopupControllerView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 395BDED4206FFD31008296C3 /* AddPopupControllerView.storyboard */; };
+		395E54BB206C79E700954365 /* Wifi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395E54BA206C79E700954365 /* Wifi.swift */; };
+		3969C2A2206EB9DC00E654C8 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3969C2A1206EB9DC00E654C8 /* ViewController2.swift */; };
+		3969C2A4206EBB0200E654C8 /* CustomMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3969C2A3206EBB0200E654C8 /* CustomMarkerView.swift */; };
+		3969C2A6206EC06D00E654C8 /* LocationPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3969C2A5206EC06D00E654C8 /* LocationPreviewView.swift */; };
+		3969C2A8206EC3C600E654C8 /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3969C2A7206EC3C600E654C8 /* test.swift */; };
+		39EB89832062F2D800726719 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB89822062F2D800726719 /* AppDelegate.swift */; };
+		39EB89852062F2D800726719 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB89842062F2D800726719 /* ViewController.swift */; };
+		39EB89882062F2D800726719 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39EB89862062F2D800726719 /* Main.storyboard */; };
+		39EB898B2062F2D800726719 /* SocialWifi.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 39EB89892062F2D800726719 /* SocialWifi.xcdatamodeld */; };
+		39EB898D2062F2D800726719 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39EB898C2062F2D800726719 /* Assets.xcassets */; };
+		39EB89902062F2D800726719 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39EB898E2062F2D800726719 /* LaunchScreen.storyboard */; };
+		564A356549C1DBD8857DCA6A /* Pods_SocialWifi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33448A2C0D64AD62DA9A30F1 /* Pods_SocialWifi.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		33448A2C0D64AD62DA9A30F1 /* Pods_SocialWifi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialWifi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		391375BD206D92880054A8C3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		395BDECE206FEF5B008296C3 /* AddPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPopupViewController.swift; sourceTree = "<group>"; };
+		395BDED4206FFD31008296C3 /* AddPopupControllerView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddPopupControllerView.storyboard; sourceTree = "<group>"; };
+		395E54BA206C79E700954365 /* Wifi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Wifi.swift; path = /Users/ahmedbhd/Desktop/SocialWifi/SocialWifi/SocialWifi/Wifi.swift; sourceTree = "<absolute>"; };
+		3969C2A1206EB9DC00E654C8 /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
+		3969C2A3206EBB0200E654C8 /* CustomMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMarkerView.swift; sourceTree = "<group>"; };
+		3969C2A5206EC06D00E654C8 /* LocationPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPreviewView.swift; sourceTree = "<group>"; };
+		3969C2A7206EC3C600E654C8 /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
+		39EB897F2062F2D800726719 /* SocialWifi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialWifi.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		39EB89822062F2D800726719 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		39EB89842062F2D800726719 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		39EB89872062F2D800726719 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		39EB898A2062F2D800726719 /* SocialWifi.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SocialWifi.xcdatamodel; sourceTree = "<group>"; };
+		39EB898C2062F2D800726719 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		39EB898F2062F2D800726719 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		39EB89912062F2D800726719 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC0F1821CFFA244828EB5B4D /* Pods-SocialWifi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialWifi.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialWifi/Pods-SocialWifi.release.xcconfig"; sourceTree = "<group>"; };
+		EE3E3A8F209A3DEEC93854F3 /* Pods-SocialWifi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialWifi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialWifi/Pods-SocialWifi.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		39EB897C2062F2D800726719 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				391375BE206D92880054A8C3 /* CoreLocation.framework in Frameworks */,
+				564A356549C1DBD8857DCA6A /* Pods_SocialWifi.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		39EB89762062F2D700726719 = {
+			isa = PBXGroup;
+			children = (
+				39EB89812062F2D800726719 /* SocialWifi */,
+				39EB89802062F2D800726719 /* Products */,
+				EAF20F72DE2B308B0C7D4BBC /* Pods */,
+				723D9F113891C4628D4909B5 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		39EB89802062F2D800726719 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				39EB897F2062F2D800726719 /* SocialWifi.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		39EB89812062F2D800726719 /* SocialWifi */ = {
+			isa = PBXGroup;
+			children = (
+				395E54BA206C79E700954365 /* Wifi.swift */,
+				39EB89822062F2D800726719 /* AppDelegate.swift */,
+				39EB89842062F2D800726719 /* ViewController.swift */,
+				3969C2A7206EC3C600E654C8 /* test.swift */,
+				3969C2A1206EB9DC00E654C8 /* ViewController2.swift */,
+				3969C2A5206EC06D00E654C8 /* LocationPreviewView.swift */,
+				395BDECE206FEF5B008296C3 /* AddPopupViewController.swift */,
+				39EB89862062F2D800726719 /* Main.storyboard */,
+				39EB898C2062F2D800726719 /* Assets.xcassets */,
+				39EB898E2062F2D800726719 /* LaunchScreen.storyboard */,
+				39EB89912062F2D800726719 /* Info.plist */,
+				39EB89892062F2D800726719 /* SocialWifi.xcdatamodeld */,
+				3969C2A3206EBB0200E654C8 /* CustomMarkerView.swift */,
+				395BDED4206FFD31008296C3 /* AddPopupControllerView.storyboard */,
+			);
+			path = SocialWifi;
+			sourceTree = "<group>";
+		};
+		723D9F113891C4628D4909B5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				391375BD206D92880054A8C3 /* CoreLocation.framework */,
+				33448A2C0D64AD62DA9A30F1 /* Pods_SocialWifi.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EAF20F72DE2B308B0C7D4BBC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EE3E3A8F209A3DEEC93854F3 /* Pods-SocialWifi.debug.xcconfig */,
+				EC0F1821CFFA244828EB5B4D /* Pods-SocialWifi.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		39EB897E2062F2D800726719 /* SocialWifi */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 39EB89942062F2D800726719 /* Build configuration list for PBXNativeTarget "SocialWifi" */;
+			buildPhases = (
+				31DAAEEB3CD20E77C1393703 /* [CP] Check Pods Manifest.lock */,
+				39EB897B2062F2D800726719 /* Sources */,
+				39EB897C2062F2D800726719 /* Frameworks */,
+				39EB897D2062F2D800726719 /* Resources */,
+				60A6078CC3133FC726244B52 /* [CP] Embed Pods Frameworks */,
+				390DB1222B0EF1C38A0D1032 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SocialWifi;
+			productName = SocialWifi;
+			productReference = 39EB897F2062F2D800726719 /* SocialWifi.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		39EB89772062F2D800726719 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = "Ahmed BHD";
+				TargetAttributes = {
+					39EB897E2062F2D800726719 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 39EB897A2062F2D800726719 /* Build configuration list for PBXProject "SocialWifi" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 39EB89762062F2D700726719;
+			productRefGroup = 39EB89802062F2D800726719 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				39EB897E2062F2D800726719 /* SocialWifi */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		39EB897D2062F2D800726719 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				395BDED5206FFD31008296C3 /* AddPopupControllerView.storyboard in Resources */,
+				39EB89902062F2D800726719 /* LaunchScreen.storyboard in Resources */,
+				39EB898D2062F2D800726719 /* Assets.xcassets in Resources */,
+				39EB89882062F2D800726719 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		31DAAEEB3CD20E77C1393703 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SocialWifi-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		390DB1222B0EF1C38A0D1032 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SocialWifi/Pods-SocialWifi-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlacePicker/Frameworks/GooglePlacePicker.framework/Resources/GooglePlacePicker.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlacePicker.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SocialWifi/Pods-SocialWifi-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		60A6078CC3133FC726244B52 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SocialWifi/Pods-SocialWifi-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Floaty/Floaty.framework",
+				"${BUILT_PRODUCTS_DIR}/LSDialogViewController/LSDialogViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Floaty.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LSDialogViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SocialWifi/Pods-SocialWifi-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		39EB897B2062F2D800726719 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3969C2A2206EB9DC00E654C8 /* ViewController2.swift in Sources */,
+				395BDECF206FEF5B008296C3 /* AddPopupViewController.swift in Sources */,
+				395E54BB206C79E700954365 /* Wifi.swift in Sources */,
+				39EB89852062F2D800726719 /* ViewController.swift in Sources */,
+				39EB898B2062F2D800726719 /* SocialWifi.xcdatamodeld in Sources */,
+				3969C2A6206EC06D00E654C8 /* LocationPreviewView.swift in Sources */,
+				3969C2A8206EC3C600E654C8 /* test.swift in Sources */,
+				39EB89832062F2D800726719 /* AppDelegate.swift in Sources */,
+				3969C2A4206EBB0200E654C8 /* CustomMarkerView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		39EB89862062F2D800726719 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				39EB89872062F2D800726719 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		39EB898E2062F2D800726719 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				39EB898F2062F2D800726719 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		39EB89922062F2D800726719 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		39EB89932062F2D800726719 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		39EB89952062F2D800726719 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE3E3A8F209A3DEEC93854F3 /* Pods-SocialWifi.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZHM9WL2VP5;
+				INFOPLIST_FILE = SocialWifi/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = bhd.SocialWifi;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		39EB89962062F2D800726719 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EC0F1821CFFA244828EB5B4D /* Pods-SocialWifi.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZHM9WL2VP5;
+				INFOPLIST_FILE = SocialWifi/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = bhd.SocialWifi;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		39EB897A2062F2D800726719 /* Build configuration list for PBXProject "SocialWifi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39EB89922062F2D800726719 /* Debug */,
+				39EB89932062F2D800726719 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		39EB89942062F2D800726719 /* Build configuration list for PBXNativeTarget "SocialWifi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39EB89952062F2D800726719 /* Debug */,
+				39EB89962062F2D800726719 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		39EB89892062F2D800726719 /* SocialWifi.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				39EB898A2062F2D800726719 /* SocialWifi.xcdatamodel */,
+			);
+			currentVersion = 39EB898A2062F2D800726719 /* SocialWifi.xcdatamodel */;
+			path = SocialWifi.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 39EB89772062F2D800726719 /* Project object */;
+}
