@@ -1,5 +1,15 @@
 PODS:
   - Alamofire (4.4.0)
+  - Bolts (1.9.0):
+    - Bolts/AppLinks (= 1.9.0)
+    - Bolts/Tasks (= 1.9.0)
+  - Bolts/AppLinks (1.9.0):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.9.0)
+  - FBSDKCoreKit (4.31.1):
+    - Bolts (~> 1.7)
+  - FBSDKLoginKit (4.31.1):
+    - FBSDKCoreKit
   - Floaty (4.0.0)
   - GoogleMaps (2.6.0):
     - GoogleMaps/Maps (= 2.6.0)
@@ -13,25 +23,33 @@ PODS:
     - GoogleMaps/Base (= 2.6.0)
   - LSDialogViewController (1.0.0)
   - SwiftyJSON (4.0.0)
+  - Toast-Swift (3.0.1)
 
 DEPENDENCIES:
-  - Alamofire (= 4.4.0)
-  - Floaty (~> 4.0.0)
+  - Alamofire
+  - FBSDKCoreKit
+  - FBSDKLoginKit
+  - Floaty
   - GoogleMaps
   - GooglePlacePicker
   - GooglePlaces
-  - LSDialogViewController (~> 1.0.0)
+  - LSDialogViewController
   - SwiftyJSON
+  - Toast-Swift
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
+  FBSDKCoreKit: e08ccfcefa7bc1347a07c276dac9bf6c7fe57024
+  FBSDKLoginKit: 99797ac39252fef6f72600b886f6ee60b4b29cab
   Floaty: 4f88811bbf08521807f42355db6a9c0db85d5d78
   GoogleMaps: 42f91c68b7fa2f84d5c86597b18ceb99f5414c7f
   GooglePlacePicker: e4488625effb006f59de49e14b7a603e463e4261
   GooglePlaces: f6ddf33b75cef69e888907d9947c57198ed845f3
   LSDialogViewController: d493fb4ef63654c5a950069a1e2bfb0cb2127f45
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
+  Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
 
-PODFILE CHECKSUM: 94c014f78f3ff3744acb330ed48ff5cd706c3e17
+PODFILE CHECKSUM: d0128b4011dda7012bcfa972873d5743a3f39e9e
 
 COCOAPODS: 1.4.0

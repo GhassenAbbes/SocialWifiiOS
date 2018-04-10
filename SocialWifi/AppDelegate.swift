@@ -2,13 +2,15 @@
 //  AppDelegate.swift
 //  SocialWifi
 //
-//  Created by Ahmed BHD on 3/21/18.
-//  Copyright © 2018 Ahmed BHD. All rights reserved.
+//  Created by Ghassen on 4/4/18.
+//  Copyright © 2018 esprit. All rights reserved.
 //
 
 import UIKit
 import CoreData
+import FBSDKCoreKit
 import GoogleMaps
+import GooglePlaces
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,20 +18,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        // Add any custom logic here.
         GMSServices.provideAPIKey("AIzaSyCzdA--cz2h1BWtSk10vlrkrmc3plfYezQ")
-        GMSMapView.init()
-//        if let window = self.window {
-//            window.backgroundColor = UIColor.white
-//
-//            let nav = UINavigationController()
-//            let mainView = ViewController()
-//            nav.viewControllers = [mainView]
-//            window.rootViewController = nav
-//            window.makeKeyAndVisible()
-//        }
-       return true
+        GMSPlacesClient.provideAPIKey("AIzaSyCzdA--cz2h1BWtSk10vlrkrmc3plfYezQ")
+        return true
+    }
+    
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        let handled: Bool = FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
+        // Add any custom logic here.
+        return handled
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

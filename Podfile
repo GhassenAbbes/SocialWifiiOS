@@ -1,13 +1,16 @@
 platform :ios, '9.0'
-source 'https://github.com/CocoaPods/Specs.git'
 
 target 'SocialWifi' do
-  use_frameworks!
-  pod 'Alamofire', '4.4.0'
-  pod 'GoogleMaps'
-  pod 'GooglePlaces'
-  pod 'GooglePlacePicker'
-  pod 'SwiftyJSON'
-  pod 'LSDialogViewController', '~> 1.0.0'
-  pod "Floaty", "~> 4.0.0”
+    use_frameworks!
+    pod 'FBSDKLoginKit'
+    pod 'FBSDKCoreKit'
+    pod 'GoogleMaps'
+    pod 'SwiftyJSON'
+    pod 'Alamofire'
+    pod 'GooglePlaces'
+    pod 'GooglePlacePicker'
+    pod 'LSDialogViewController'
+    pod "Floaty"
+    pod 'Toast-Swift'
 end
+

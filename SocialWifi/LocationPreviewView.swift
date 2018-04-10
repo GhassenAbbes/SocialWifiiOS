@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-
+import Toast_Swift
 class LocationPreviewView: UIView {
     
     override init(frame: CGRect) {
@@ -19,12 +19,15 @@ class LocationPreviewView: UIView {
         setupViews()
     }
     
+    func setData(title: String, img: UIImage,  price: String) {
+        lblTitle.text = title
+        imgView.image = img
+        lblPrice.text = price
+    }
     func setData(title: String,  price: String) {
         lblTitle.text = title
-       // imgView.image = img
-        lblPrice.text = "$\(price)"
+        lblPrice.text = price
     }
-    
     func setupViews() {
         addSubview(containerView)
         containerView.leftAnchor.constraint(equalTo: leftAnchor).isActive=true
@@ -38,17 +41,24 @@ class LocationPreviewView: UIView {
         lblTitle.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: 0).isActive=true
         lblTitle.heightAnchor.constraint(equalToConstant: 35).isActive=true
         
-//        addSubview(imgView)
-//        imgView.leftAnchor.constraint(equalTo: leftAnchor).isActive=true
-//        imgView.topAnchor.constraint(equalTo: lblTitle.bottomAnchor).isActive=true
-//        imgView.rightAnchor.constraint(equalTo: rightAnchor).isActive=true
-//        imgView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive=true
-//
+        addSubview(imgView)
+        imgView.leftAnchor.constraint(equalTo: leftAnchor).isActive=true
+        imgView.topAnchor.constraint(equalTo: lblTitle.bottomAnchor).isActive=true
+        imgView.rightAnchor.constraint(equalTo: rightAnchor).isActive=true
+        imgView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive=true
+        
         addSubview(lblPrice)
         lblPrice.centerXAnchor.constraint(equalTo: centerXAnchor).isActive=true
-       // lblPrice.centerYAnchor.constraint(equalTo: imgView.centerYAnchor).isActive=true
-        lblPrice.widthAnchor.constraint(equalToConstant: 90).isActive=true
+        lblPrice.centerYAnchor.constraint(equalTo: imgView.centerYAnchor).isActive=true
+        lblPrice.widthAnchor.constraint(equalToConstant:200).isActive=true
         lblPrice.heightAnchor.constraint(equalToConstant: 40).isActive=true
+        
+        addSubview(btnFav)
+        btnFav.bottomAnchor.constraint(equalTo: imgView.bottomAnchor, constant: -10).isActive=true
+        btnFav.rightAnchor.constraint(equalTo: imgView.rightAnchor, constant: -10).isActive=true
+        btnFav.widthAnchor.constraint(equalToConstant: 20).isActive=true
+        
+        
     }
     
     let containerView: UIView = {
@@ -57,12 +67,12 @@ class LocationPreviewView: UIView {
         return v
     }()
     
-//    let imgView: UIImageView = {
-//        let v=UIImageView()
-//        v.image=#imageLiteral(resourceName: "restaurant1")
-//        v.translatesAutoresizingMaskIntoConstraints=false
-//        return v
-//    }()
+    let imgView: UIImageView = {
+        let v=UIImageView()
+        v.image=#imageLiteral(resourceName: "restaurant1")
+        v.translatesAutoresizingMaskIntoConstraints=false
+        return v
+    }()
     
     let lblTitle: UILabel = {
         let lbl=UILabel()
@@ -87,9 +97,28 @@ class LocationPreviewView: UIView {
         lbl.translatesAutoresizingMaskIntoConstraints=false
         return lbl
     }()
+    let btnFav: UIButton = {
+        let btn=UIButton()
+        btn.backgroundColor = UIColor.white
+        btn.setImage(#imageLiteral(resourceName: "inlove"), for: .normal)
+        btn.layer.cornerRadius = 10
+        btn.clipsToBounds=true
+        btn.tintColor = UIColor.gray
+        btn.imageView?.tintColor=UIColor.gray
+        btn.addTarget(self, action: #selector(AddFav), for: .touchUpInside)
+        btn.translatesAutoresizingMaskIntoConstraints=false
+        return btn
+    }()
     
+    @objc func AddFav() {
+        print ("fav")
+        
+        self.makeToast("Added a favourite ▾")
+        
+    }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
+
 
