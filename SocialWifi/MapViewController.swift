@@ -14,6 +14,7 @@ import CoreLocation
 //import Floaty
 import Toast_Swift
 import GooglePlaces
+import GooglePlacePicker
 
 struct MyPlace {
     var name: String
@@ -22,7 +23,8 @@ struct MyPlace {
     var img : UIImage
 }
 
-class MapViewController: UIViewController, UITextFieldDelegate{
+class MapViewController: UIViewController, UITextFieldDelegate ,GMSPlacePickerViewControllerDelegate{
+    
     
     
     
@@ -35,7 +37,7 @@ class MapViewController: UIViewController, UITextFieldDelegate{
     
     let customMarkerWidth: Int = 50
     let customMarkerHeight: Int = 70
-    
+    var selectedWifi:Wifi?
     var previewDemoData = [Wifi]()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,8 +99,10 @@ class MapViewController: UIViewController, UITextFieldDelegate{
                     let img = Slocation["img"] as! String
                     let MAC = Slocation["MAC"] as Any
                     let id = Slocation["id_loc"] as! String
+                    let nblike = Slocation["nblike"] as! String
+                    let nbdislike = Slocation["nbdislike"] as! String
                     //print(id)
-                    let w = Wifi(id_loc: id, desc_loc: desc_loc, wifi_pass: wifi_pass, lat: slat, lng: slng, img: img, mac: MAC)
+                    let w = Wifi(id_loc: id, desc_loc: desc_loc, wifi_pass: wifi_pass, lat: slat, lng: slng, img: img, mac: MAC , nblike: nblike , nbdislike: nbdislike)
                     
                     self.previewDemoData.append(w)
                     
@@ -106,39 +110,47 @@ class MapViewController: UIViewController, UITextFieldDelegate{
                 }
                 print(self.previewDemoData)
                 self.showMarker()
+                
+                
             }
         }
     }
     
-    func AddFav(tag: Int){
-        let cm = ConnectionManager(action :"addfavourite&id_user=1828686040530623&id_loc=\(self.previewDemoData[tag].id_loc )")
-        let cmcheck = ConnectionManager(action :"checkfav&id_user=1828686040530623&id_loc=\(self.previewDemoData[tag].id_loc )")
-        //let url = "http://192.168.1.7/android/services.php?action=addloc&desc=\(self.SSIDText.text ?? "")&pw=\(self.PWText.text ?? "")&lat=\(self.lat ?? "")&lng=\(self.lng ?? "")&img=null"
-        print ("url = \(cm.getURL())")
+    func get_image(_ url_str:String, _ imageView:UIImageView)
+    {
         
+        let url:URL = URL(string: url_str)!
+        let session = URLSession(configuration: .default)
         
-        
-        Alamofire.request(cmcheck.getURL()).responseJSON{ response in
+        let getImageFromUrl = session.dataTask(with: url) { (data, response, error) in
             
-            if let locationsJSON = response.result.value {
-                //let locationArray:Dictionary = locationsJSON as! Dictionary<String,Any>
-                let json =  locationsJSON as! NSArray
-                if json.count > 0 {
-                    self.view.makeToast("this favourite already exists")
-                }else{
-                    Alamofire.request(cmcheck.getURL()).responseString{ response in
-                        print (response.result.isSuccess)
-                        if     response.result.isSuccess{
-                            self.view.makeToast("the favourite has been added")
-                        }else{
-                            self.view.makeToast("the favourite couldn't be added :(")
-                        }
-                        
-                    }
-                }
+            //if there is any error
+            if let e = error {
+                //displaying the message
+                print("Error Occurred: \(e)")
                 
+            } else {
+                //in case of now error, checking wheather the response is nil or not
+                if (response as? HTTPURLResponse) != nil {
+                    
+                    //checking if the response contains an image
+                    if let imageData = data {
+                        
+                        //getting the image
+                        let image = UIImage(data: imageData)
+                        
+                        //displaying the image
+                        imageView.image = image
+                        
+                    } else {
+                        print("Image file is currupted")
+                    }
+                } else {
+                    print("No response from server")
+                }
             }
         }
+        getImageFromUrl.resume()
     }
     
     //    func initGoogleMaps() {
@@ -183,10 +195,12 @@ class MapViewController: UIViewController, UITextFieldDelegate{
             mapView.animate(toLocation: (location?.coordinate)!)
         }
     }
+    
     var locationPreviewView: LocationPreviewView = {
         let v=LocationPreviewView()
         return v
     }()
+    
     @objc func locationTapped(pos: CLLocationCoordinate2D) {
         //        let v=DetailsVC()
         //        v.passedData = previewDemoData[tag]
@@ -289,13 +303,19 @@ class MapViewController: UIViewController, UITextFieldDelegate{
         }
     }
     
-    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    //        if segue.identifier == "toAddViewControllerSegue" {
-    //            let popup = segue.destination as! AddPopupViewController
-    //            popup.lat=String(describing: self.currentlocation?.coordinate.latitude)
-    //            popup.lng=String(describing: self.currentlocation?.coordinate.longitude)
-    //        }
-    //    }
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == "showdetailswifi" {
+                let popup = segue.destination as! VCWifiDetail
+                popup.lat=self.selectedWifi?.lat
+                popup.lng=self.selectedWifi?.lng
+                popup.nbdislike=self.selectedWifi?.nbdislike
+                popup.nblike=self.selectedWifi?.nblike
+                popup.id=self.selectedWifi?.id_loc
+                popup.img=self.selectedWifi?.img
+                popup.ssid=self.selectedWifi?.desc_loc
+                popup.pw=self.selectedWifi?.wifi_pass
+            }
+        }
     
     
     //MARK: - this is function for create direction path, from start location to desination location
@@ -339,6 +359,40 @@ class MapViewController: UIViewController, UITextFieldDelegate{
             
         }
     }
+    
+    //MARK: place picker
+   
+    // To receive the results from the place picker 'self' will need to conform to
+    // GMSPlacePickerViewControllerDelegate and implement this code.
+    func placePicker(_ viewController: GMSPlacePickerViewController, didPick place: GMSPlace) {
+        // Dismiss the place picker, as it cannot dismiss itself.
+        dismiss(animated: true, completion: nil)
+        
+        print("Place name \(place.name)")
+        print("Place address \(place.formattedAddress ?? "" )")
+        print("Place attributions \(place.attributions )")
+    }
+    
+    func placePickerDidCancel(_ viewController: GMSPlacePickerViewController) {
+        // Dismiss the place picker, as it cannot dismiss itself.
+        dismiss(animated: true, completion: nil)
+        
+        print("No place selected")
+    }
+    
+//    GMSPlacesClient.sharedClient().lookUpPhotosForPlaceID(placeID) { (photos, error) -> Void in
+//        if let error = error {
+//            // TODO: handle the error.
+//                print("Error: \(error.description)")
+//            } else {
+//            // Get attribution for the first photo in the list.
+//                if let photo = photos?.results.first {
+//                    let attributions = photo.attributions
+//                }
+//            }
+//    }
+    
+
 }
 
 // maps functions
@@ -350,6 +404,7 @@ extension MapViewController: GMSMapViewDelegate{
         let customMarker = CustomMarkerView(frame: CGRect(x: 0, y: 0, width: customMarkerWidth, height: customMarkerHeight), image: img, borderColor: UIColor.white, tag: customMarkerView.tag)
         
         marker.iconView = customMarker
+
         
         return false
     }
@@ -359,7 +414,7 @@ extension MapViewController: GMSMapViewDelegate{
         
         guard let customMarkerView = marker.iconView as? CustomMarkerView else { return nil }
         let data = previewDemoData[customMarkerView.tag]
-        locationPreviewView.setData(title: data.desc_loc,img: #imageLiteral(resourceName: "restaurant1") ,price: data.wifi_pass)
+        locationPreviewView.setData(title: data.desc_loc,img: data.img ,price: data.wifi_pass)
         
         
         return locationPreviewView
@@ -370,7 +425,9 @@ extension MapViewController: GMSMapViewDelegate{
         guard let customMarkerView = marker.iconView as? CustomMarkerView else { return }
         let tag = customMarkerView.tag
         //locationTapped(pos: marker.position)
-        AddFav(tag: tag)
+        //AddFav(tag: tag)
+        self.selectedWifi = self.previewDemoData[tag]
+        self.performSegue(withIdentifier: "showdetailswifi", sender: self)
     }
     
     func mapView(_ mapView: GMSMapView, didCloseInfoWindowOf marker: GMSMarker) {

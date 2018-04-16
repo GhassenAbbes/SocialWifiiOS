@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qdQ-aG-dqn">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Favourit Map View Controller-->
+        <scene sceneID="Arw-ko-0wf">
+            <objects>
+                <viewController storyboardIdentifier="showfavmap" modalPresentationStyle="overCurrentContext" id="qdQ-aG-dqn" customClass="FavouritMapViewController" customModule="SocialWifi" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EPd-rf-ceb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CYC-xM-t7b">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <subviews>
+                                    <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="sbd-m7-Q97" customClass="GMSMapView">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="sbd-m7-Q97" secondAttribute="trailing" id="Cqf-MO-oWy"/>
+                                    <constraint firstAttribute="bottom" secondItem="sbd-m7-Q97" secondAttribute="bottom" id="I16-pk-tLi"/>
+                                    <constraint firstItem="sbd-m7-Q97" firstAttribute="leading" secondItem="CYC-xM-t7b" secondAttribute="leading" id="TUD-lo-a6D"/>
+                                    <constraint firstItem="sbd-m7-Q97" firstAttribute="top" secondItem="CYC-xM-t7b" secondAttribute="top" id="tuf-0v-oU8"/>
+                                </constraints>
+                            </view>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YIu-Mb-0nE">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Favourit Location" id="A7e-Id-Nbm">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="reply" id="78L-q9-PTD">
+                                            <connections>
+                                                <action selector="Cancel:" destination="qdQ-aG-dqn" id="5XA-Mt-T5x"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YIu-Mb-0nE" firstAttribute="trailing" secondItem="CYC-xM-t7b" secondAttribute="trailing" id="Aka-QG-ZwT"/>
+                            <constraint firstItem="CYC-xM-t7b" firstAttribute="leading" secondItem="4Yu-Sh-yQa" secondAttribute="leading" id="C3D-x5-bDM"/>
+                            <constraint firstItem="4Yu-Sh-yQa" firstAttribute="trailing" secondItem="CYC-xM-t7b" secondAttribute="trailing" id="MuS-D8-N6v"/>
+                            <constraint firstItem="CYC-xM-t7b" firstAttribute="top" secondItem="YIu-Mb-0nE" secondAttribute="bottom" id="UcC-bQ-Dnp"/>
+                            <constraint firstItem="YIu-Mb-0nE" firstAttribute="top" secondItem="4Yu-Sh-yQa" secondAttribute="top" id="dBE-Al-8Bt"/>
+                            <constraint firstItem="4Yu-Sh-yQa" firstAttribute="bottom" secondItem="CYC-xM-t7b" secondAttribute="bottom" id="kIE-1e-Glx"/>
+                            <constraint firstItem="YIu-Mb-0nE" firstAttribute="leading" secondItem="CYC-xM-t7b" secondAttribute="leading" id="yCY-cJ-Qdo"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4Yu-Sh-yQa"/>
+                    </view>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="mapView" destination="sbd-m7-Q97" id="b5m-0w-cLE"/>
+                        <outlet property="viewformap" destination="CYC-xM-t7b" id="NQM-FM-HPP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZMh-sH-f4b" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="832.79999999999995" y="148.87556221889056"/>
+        </scene>
+        <!--FavouriteStoryboard-->
+        <scene sceneID="SbH-mM-Lmp">
+            <objects>
+                <viewControllerPlaceholder storyboardName="FavouriteStoryboard" id="6NE-fZ-yYO" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B6h-VV-5cc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-205" y="140"/>
+        </scene>
+    </scenes>
+</document>

@@ -19,9 +19,14 @@ class LocationPreviewView: UIView {
         setupViews()
     }
     
-    func setData(title: String, img: UIImage,  price: String) {
+    func setData(title: String, img: String,  price: String) {
         lblTitle.text = title
-        imgView.image = img
+        //imgView.image = img
+        if img == "null"{
+            imgView.image = #imageLiteral(resourceName: "wifihotspot")
+        }else{
+            get_image(img, imgView)
+        }
         lblPrice.text = price
     }
     func setData(title: String,  price: String) {
@@ -53,11 +58,11 @@ class LocationPreviewView: UIView {
         lblPrice.widthAnchor.constraint(equalToConstant:200).isActive=true
         lblPrice.heightAnchor.constraint(equalToConstant: 40).isActive=true
         
-        addSubview(btnFav)
-        btnFav.bottomAnchor.constraint(equalTo: imgView.bottomAnchor, constant: -10).isActive=true
-        btnFav.rightAnchor.constraint(equalTo: imgView.rightAnchor, constant: -10).isActive=true
-        btnFav.widthAnchor.constraint(equalToConstant: 20).isActive=true
-        
+//        addSubview(btnFav)
+//        btnFav.bottomAnchor.constraint(equalTo: imgView.bottomAnchor, constant: -10).isActive=true
+//        btnFav.rightAnchor.constraint(equalTo: imgView.rightAnchor, constant: -10).isActive=true
+//        btnFav.widthAnchor.constraint(equalToConstant: 20).isActive=true
+//
         
     }
     
@@ -69,7 +74,7 @@ class LocationPreviewView: UIView {
     
     let imgView: UIImageView = {
         let v=UIImageView()
-        v.image=#imageLiteral(resourceName: "restaurant1")
+        v.image=#imageLiteral(resourceName: "wifihotspot")
         v.translatesAutoresizingMaskIntoConstraints=false
         return v
     }()
@@ -118,6 +123,43 @@ class LocationPreviewView: UIView {
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func get_image(_ url_str:String, _ imageView:UIImageView)
+    {
+        
+        let url:URL = URL(string: url_str)!
+        let session = URLSession(configuration: .default)
+        
+        let getImageFromUrl = session.dataTask(with: url) { (data, response, error) in
+            
+            //if there is any error
+            if let e = error {
+                //displaying the message
+                print("Error Occurred: \(e)")
+                
+            } else {
+                //in case of now error, checking wheather the response is nil or not
+                if (response as? HTTPURLResponse) != nil {
+                    
+                    //checking if the response contains an image
+                    if let imageData = data {
+                        
+                        //getting the image
+                        let image = UIImage(data: imageData)
+                        
+                        //displaying the image
+                        imageView.image = image
+                        
+                    } else {
+                        print("Image file is currupted")
+                    }
+                } else {
+                    print("No response from server")
+                }
+            }
+        }
+        getImageFromUrl.resume()
     }
 }
 

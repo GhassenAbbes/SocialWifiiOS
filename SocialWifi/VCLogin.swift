@@ -39,8 +39,11 @@ class VCLogin: UIViewController, FBSDKLoginButtonDelegate{
                     self.fbuser.fb_last_name = fbDetails["last_name"] as! String
                     self.fbuser.fb_gender = fbDetails["gender"] as! String
                     self.fbuser.fb_email = fbDetails["email"] as! String
-                 
+                    self.fbuser.fb_access_token = FBSDKAccessToken.current().tokenString
+                    self.sharedFBId(idFB: self.fbuser.fb_id)
                     self.AddUser(fbuser: self.fbuser)
+                    self.performSegue(withIdentifier: "Main", sender: self)
+                    
                 }
             })
         }
@@ -64,26 +67,36 @@ class VCLogin: UIViewController, FBSDKLoginButtonDelegate{
     */
 
     @IBAction func BTLogin(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "Main", sender: self)
-//        let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
-//        if((FBSDKAccessToken.current()) == nil){
-//            fbLoginManager.logIn(withReadPermissions: ["email"], from: self, handler: { (result, error) -> Void in
-//                if error != nil {
-//                    NSLog("Process error")
-//                }
-//                else if (result?.isCancelled)! {
-//                    NSLog("Cancelled")
-//                }
-//                else {
-//                    NSLog("Logged in")
-//                    self.getFBUserData()
-//                    print (FBSDKAccessToken.current())
-//                    FBSDKAccessToken.setCurrent(nil)
-//                }
-//            })
-//        }
+        let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
+        if((FBSDKAccessToken.current()) != nil){
+            self.performSegue(withIdentifier: "Main", sender: self)
+        }else {
+            fbLoginManager.logIn(withReadPermissions: ["email"], from: self, handler: { (result, error) -> Void in
+                if error != nil {
+                    NSLog("Process error")
+                }
+                else if (result?.isCancelled)! {
+                    NSLog("Cancelled")
+                }
+                else {
+                    NSLog("Logged in")
+                    self.getFBUserData()
+                }
+            })
+        }
     }
     
+    func sharedFBId (idFB:String){
+        let preferences = UserDefaults.standard
+        
+        _ = preferences.setValue(idFB, forKey: "idFacebook")
+        //  Save to disk
+        let didSave = preferences.synchronize()
+        
+        if !didSave {
+            print("Couldn't save (I've never seen this happen in real world testing")
+        }
+    }
     
     func AddUser(fbuser:FBUser){
         

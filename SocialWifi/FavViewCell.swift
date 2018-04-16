@@ -11,11 +11,13 @@ import UIKit
 class FavViewCell: UITableViewCell {
     
    
-    @IBOutlet weak var PWlbl: UILabel!
-    
     @IBOutlet weak var SSIDlbl: UILabel!
     
+    @IBOutlet weak var PWlbl: UILabel!
+    
     @IBOutlet weak var FavImage: UIImageView!
+    
+    
     override func awakeFromNib() {
         
         super.awakeFromNib()
