@@ -17,7 +17,7 @@ class Wifi  {
     var mac :Any
     var nblike:String
     var nbdislike:String
-    
+    var ssid:String
 //    init(id_loc:String,desc_loc: String,wifi_pass :String, lat :String ,lng :String , img :String,  mac :Any) {
 //        self.id_loc = id_loc
 //        self.desc_loc = desc_loc
@@ -28,7 +28,7 @@ class Wifi  {
 //        self.mac = mac
 //    }
     
-    init(id_loc:String,desc_loc: String,wifi_pass :String, lat :String ,lng :String , img :String,  mac :Any, nblike:String, nbdislike:String) {
+    init(id_loc:String,desc_loc: String,wifi_pass :String, lat :String ,lng :String , img :String,  mac :Any, nblike:String, nbdislike:String, ssid:String) {
         self.id_loc = id_loc
         self.desc_loc = desc_loc
         self.wifi_pass = wifi_pass
@@ -38,6 +38,7 @@ class Wifi  {
         self.mac = mac
         self.nblike = nblike
         self.nbdislike = nbdislike
+        self.ssid = ssid
     }
 }
 

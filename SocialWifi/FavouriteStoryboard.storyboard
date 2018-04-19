@@ -93,7 +93,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hqC-JF-r8V"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Favourits" selectedImage="favoris" id="MHx-Yo-lkO"/>
+                    <tabBarItem key="tabBarItem" title="Favourits" image="hearts" id="MHx-Yo-lkO">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
@@ -115,7 +119,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="favoris" width="16" height="16"/>
+        <image name="hearts" width="16" height="16"/>
         <image name="restaurant1" width="800" height="532"/>
     </resources>
 </document>

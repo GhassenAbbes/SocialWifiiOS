@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Add any custom logic here.
         GMSServices.provideAPIKey("AIzaSyCzdA--cz2h1BWtSk10vlrkrmc3plfYezQ")
         GMSPlacesClient.provideAPIKey("AIzaSyCzdA--cz2h1BWtSk10vlrkrmc3plfYezQ")
+            //UITabBar.appearance().tintColor = UIColor(red: 219, green: 216, blue: 24, alpha: 1.0)
         return true
     }
     

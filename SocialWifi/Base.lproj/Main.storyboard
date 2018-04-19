@@ -131,6 +131,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="selectedImageTintColor" red="0.82737823391630227" green="0.87089135362694303" blue="0.29244087433886662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="keyPath">
+                                <color key="value" red="0.76334770755172754" green="0.80349336139896377" blue="0.26980897232979306" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="cvu-T9-Oxd" kind="relationship" relationship="viewControllers" id="cxH-RP-ion"/>

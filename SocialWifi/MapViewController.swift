@@ -23,9 +23,11 @@ struct MyPlace {
     var img : UIImage
 }
 
-class MapViewController: UIViewController, UITextFieldDelegate ,GMSPlacePickerViewControllerDelegate{
+class MapViewController: UIViewController, UITextFieldDelegate , UISearchBarDelegate{
     
+    @IBOutlet weak var viewformap: UIView!
     
+    @IBOutlet weak var searchBar: UISearchBar!
     
     
     
@@ -39,6 +41,9 @@ class MapViewController: UIViewController, UITextFieldDelegate ,GMSPlacePickerVi
     let customMarkerHeight: Int = 70
     var selectedWifi:Wifi?
     var previewDemoData = [Wifi]()
+    var descTable = [String]()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //   self.title = "Home"
@@ -47,8 +52,7 @@ class MapViewController: UIViewController, UITextFieldDelegate ,GMSPlacePickerVi
         
         
         //
-        mapView.settings.allowScrollGesturesDuringRotateOrZoom=true
-        mapView.settings.myLocationButton=true
+       
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestAlwaysAuthorization()
@@ -63,7 +67,7 @@ class MapViewController: UIViewController, UITextFieldDelegate ,GMSPlacePickerVi
         
         ToastManager.shared.style = style
         
-        
+        setUpSearchBar()
         //        initGoogleMaps()
         //
         //        txtFieldSearch.delegate=self
@@ -74,17 +78,42 @@ class MapViewController: UIViewController, UITextFieldDelegate ,GMSPlacePickerVi
             let customMarker = CustomMarkerView(frame: CGRect(x: 0, y: 0, width: customMarkerWidth, height: customMarkerHeight), image:#imageLiteral(resourceName: "freewifi"), borderColor: UIColor.darkGray, tag: i)
             marker.iconView=customMarker
             marker.position = CLLocationCoordinate2D(latitude: Double(self.previewDemoData[i].lat)!, longitude: Double(self.previewDemoData[i].lng)!)
-            marker.title = self.previewDemoData[i].desc_loc
+            marker.title = self.previewDemoData[i].ssid
             marker.snippet = self.previewDemoData[i].wifi_pass
             marker.map = mapView
         }
+    }
+    func setUpSearchBar(){
+        searchBar.delegate = self
+    }
+    
+    
+    //MARK: searchar delegate
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard !searchText.isEmpty else {
+            let camera = GMSCameraPosition.camera(withLatitude: self.mapView.camera.target.latitude ,longitude: self.mapView.camera.target.longitude , zoom: 6.0)
+            self.mapView.animate(to: camera)
+            return
+        }
+        let currentplace = self.previewDemoData.filter({place -> Bool in
+            place.desc_loc.lowercased().contains(searchText.lowercased())
+            
+        })
+        print(searchText)
+        print (currentplace)
+        if !currentplace.isEmpty {
+            let camera = GMSCameraPosition.camera(withLatitude: Double(currentplace.first!.lat)!, longitude: Double(currentplace.first!.lng)!, zoom: 15.0)
+            self.mapView.animate(to: camera)
+            return
+        }
+        
     }
     
     ///Alamofire
     func LoadLocations(){
         let cm = ConnectionManager(action :"selectloc")
         Alamofire.request(cm.getURL()).responseJSON{ response in
-            
+            print(cm.getURL())
             if let locationsJSON = response.result.value {
                 //let locationArray:Dictionary = locationsJSON as! Dictionary<String,Any>
                 let json =  locationsJSON as! NSArray
@@ -101,11 +130,12 @@ class MapViewController: UIViewController, UITextFieldDelegate ,GMSPlacePickerVi
                     let id = Slocation["id_loc"] as! String
                     let nblike = Slocation["nblike"] as! String
                     let nbdislike = Slocation["nbdislike"] as! String
+                     let ssid = Slocation["ssid"] as! String
                     //print(id)
-                    let w = Wifi(id_loc: id, desc_loc: desc_loc, wifi_pass: wifi_pass, lat: slat, lng: slng, img: img, mac: MAC , nblike: nblike , nbdislike: nbdislike)
+                    let w = Wifi(id_loc: id, desc_loc: desc_loc, wifi_pass: wifi_pass, lat: slat, lng: slng, img: img, mac: MAC , nblike: nblike , nbdislike: nbdislike,ssid: ssid)
                     
                     self.previewDemoData.append(w)
-                    
+                    self.descTable.append(desc_loc)
                     print("hhhh")
                 }
                 print(self.previewDemoData)
@@ -167,27 +197,27 @@ class MapViewController: UIViewController, UITextFieldDelegate ,GMSPlacePickerVi
     // MARK: GOOGLE MAP DELEGATE
     
     
-    func showPartyMarkers(lat: Double, long: Double) {
-        mapView.clear()
-        for i in 0..<3 {
-            let randNum=Double(arc4random_uniform(30))/10000
-            let marker=GMSMarker()
-            let customMarker = CustomMarkerView(frame: CGRect(x: 0, y: 0, width: customMarkerWidth, height: customMarkerHeight), image: #imageLiteral(resourceName: "restaurant1") , borderColor: UIColor.darkGray, tag: i)
-            marker.iconView=customMarker
-            marker.tracksInfoWindowChanges = true
-            let randInt = arc4random_uniform(4)
-            if randInt == 0 {
-                marker.position = CLLocationCoordinate2D(latitude: lat+randNum, longitude: long-randNum)
-            } else if randInt == 1 {
-                marker.position = CLLocationCoordinate2D(latitude: lat-randNum, longitude: long+randNum)
-            } else if randInt == 2 {
-                marker.position = CLLocationCoordinate2D(latitude: lat-randNum, longitude: long-randNum)
-            } else {
-                marker.position = CLLocationCoordinate2D(latitude: lat+randNum, longitude: long+randNum)
-            }
-            marker.map = self.mapView
-        }
-    }
+//    func showPartyMarkers(lat: Double, long: Double) {
+//        mapView.clear()
+//        for i in 0..<3 {
+//            let randNum=Double(arc4random_uniform(30))/10000
+//            let marker=GMSMarker()
+//            let customMarker = CustomMarkerView(frame: CGRect(x: 0, y: 0, width: customMarkerWidth, height: customMarkerHeight), image: #imageLiteral(resourceName: "restaurant1") , borderColor: UIColor.darkGray, tag: i)
+//            marker.iconView=customMarker
+//            marker.tracksInfoWindowChanges = true
+//            let randInt = arc4random_uniform(4)
+//            if randInt == 0 {
+//                marker.position = CLLocationCoordinate2D(latitude: lat+randNum, longitude: long-randNum)
+//            } else if randInt == 1 {
+//                marker.position = CLLocationCoordinate2D(latitude: lat-randNum, longitude: long+randNum)
+//            } else if randInt == 2 {
+//                marker.position = CLLocationCoordinate2D(latitude: lat-randNum, longitude: long-randNum)
+//            } else {
+//                marker.position = CLLocationCoordinate2D(latitude: lat+randNum, longitude: long+randNum)
+//            }
+//            marker.map = self.mapView
+//        }
+//    }
     
     @objc func btnMyLocationAction() {
         let location: CLLocation? = mapView.myLocation
@@ -237,15 +267,16 @@ class MapViewController: UIViewController, UITextFieldDelegate ,GMSPlacePickerVi
         //self.mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
         self.mapView.camera = camera
         self.mapView.delegate=self
-        self.mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        //self.mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
-        // self.mapView.settings.myLocationButton=true
+        self.mapView.settings.myLocationButton=true
         self.mapView.isMyLocationEnabled=true
-        view.addSubview(self.mapView)
-        self.mapView.topAnchor.constraint(equalTo: view.topAnchor).isActive=true
-        self.mapView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive=true
-        self.mapView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive=true
-        self.mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 60).isActive=true
+        mapView.settings.allowScrollGesturesDuringRotateOrZoom=true
+        self.viewformap.addSubview(self.mapView)
+//        self.mapView.topAnchor.constraint(equalTo: view.topAnchor).isActive=true
+//        self.mapView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive=true
+//        self.mapView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive=true
+//        self.mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 60).isActive=true
         
         locationPreviewView = LocationPreviewView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 190))
         
@@ -312,7 +343,7 @@ class MapViewController: UIViewController, UITextFieldDelegate ,GMSPlacePickerVi
                 popup.nblike=self.selectedWifi?.nblike
                 popup.id=self.selectedWifi?.id_loc
                 popup.img=self.selectedWifi?.img
-                popup.ssid=self.selectedWifi?.desc_loc
+                popup.ssid=self.selectedWifi?.ssid
                 popup.pw=self.selectedWifi?.wifi_pass
             }
         }
@@ -360,37 +391,7 @@ class MapViewController: UIViewController, UITextFieldDelegate ,GMSPlacePickerVi
         }
     }
     
-    //MARK: place picker
    
-    // To receive the results from the place picker 'self' will need to conform to
-    // GMSPlacePickerViewControllerDelegate and implement this code.
-    func placePicker(_ viewController: GMSPlacePickerViewController, didPick place: GMSPlace) {
-        // Dismiss the place picker, as it cannot dismiss itself.
-        dismiss(animated: true, completion: nil)
-        
-        print("Place name \(place.name)")
-        print("Place address \(place.formattedAddress ?? "" )")
-        print("Place attributions \(place.attributions )")
-    }
-    
-    func placePickerDidCancel(_ viewController: GMSPlacePickerViewController) {
-        // Dismiss the place picker, as it cannot dismiss itself.
-        dismiss(animated: true, completion: nil)
-        
-        print("No place selected")
-    }
-    
-//    GMSPlacesClient.sharedClient().lookUpPhotosForPlaceID(placeID) { (photos, error) -> Void in
-//        if let error = error {
-//            // TODO: handle the error.
-//                print("Error: \(error.description)")
-//            } else {
-//            // Get attribution for the first photo in the list.
-//                if let photo = photos?.results.first {
-//                    let attributions = photo.attributions
-//                }
-//            }
-//    }
     
 
 }
@@ -414,7 +415,7 @@ extension MapViewController: GMSMapViewDelegate{
         
         guard let customMarkerView = marker.iconView as? CustomMarkerView else { return nil }
         let data = previewDemoData[customMarkerView.tag]
-        locationPreviewView.setData(title: data.desc_loc,img: data.img ,price: data.wifi_pass)
+        locationPreviewView.setData(title: data.ssid,img: data.img ,price: data.wifi_pass)
         
         
         return locationPreviewView

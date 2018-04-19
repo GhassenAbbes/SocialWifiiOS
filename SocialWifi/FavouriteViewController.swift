@@ -72,12 +72,13 @@ class FavouriteViewController: UIViewController, UITableViewDataSource,UITableVi
                         let id = Slocation["id_loc"] as! String
                         let nblike = Slocation["nblike"] as! String
                         let nbdislike = Slocation["nbdislike"] as! String
+                        let ssid = Slocation["ssid"] as! String
                         //print(id)
-                        let w = Wifi(id_loc: id, desc_loc: desc_loc, wifi_pass: wifi_pass, lat: slat, lng: slng, img: img, mac: MAC ,nblike: nblike , nbdislike: nbdislike)
+                        let w = Wifi(id_loc: id, desc_loc: desc_loc, wifi_pass: wifi_pass, lat: slat, lng: slng, img: img, mac: MAC ,nblike: nblike , nbdislike: nbdislike , ssid: ssid)
                         let offlineW = WifiDB(context: PersistenceService.context)
                         offlineW.id = id
                         offlineW.img = "wifihotspot"
-                        offlineW.ssid = desc_loc
+                        offlineW.ssid = ssid
                         offlineW.pw = wifi_pass
                         offlineW.lat = slat
                         offlineW.lng = slng
@@ -173,7 +174,7 @@ class FavouriteViewController: UIViewController, UITableViewDataSource,UITableVi
         if Reachability.isConnectedToNetwork(){
             let wifi = self.tableData[indexPath.row]
             
-            cell.SSIDlbl.text = wifi.desc_loc
+            cell.SSIDlbl.text = wifi.ssid
             cell.PWlbl.text = wifi.wifi_pass
             //cell.FavImage.image = #imageLiteral(resourceName: "restaurant1")
             self.get_image(wifi.img, cell.FavImage)
