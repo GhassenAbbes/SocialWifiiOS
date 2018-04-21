@@ -12,5 +12,7 @@ target 'SocialWifi' do
     pod 'LSDialogViewController'
     pod "Floaty"
     pod 'Toast-Swift'
+    pod 'Firebase/Core'
+    pod 'Firebase/Storage'
 end
 

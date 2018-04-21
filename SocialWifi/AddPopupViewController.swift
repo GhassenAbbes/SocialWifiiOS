@@ -9,10 +9,14 @@
 import UIKit
 import Alamofire
 import Toast_Swift
-class AddPopupViewController: UIViewController {
+import FirebaseStorage
+class AddPopupViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var lat:String?
     var lng:String?
+    var ImageUrl:String?
+    var image:UIImage?
+    @IBOutlet weak var imagePicked: UIImageView!
     
     
     
@@ -38,6 +42,8 @@ class AddPopupViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addGestureRecognizer(gesture)
+        
+        imagePicked.backgroundColor = UIColor.brown
         // Do any additional setup after loading the view.
     }
     
@@ -64,17 +70,58 @@ class AddPopupViewController: UIViewController {
         if ( self.SSIDText.text!=="" || self.PWText.text!=="" ){
             self.view.makeToast("You can't add a wifi without its SSID or password!") // now uses the shared style
         }else{
-            print("here")
-            self.AddWifi()
+            if (self.image != nil){
+                self.UploadImage()
+            }else{
+                self.AddWifi()
+            }
         }
         //dismiss(animated: true)
     }
    
+    @IBAction func btPick(_ sender: Any) {
+        let controller = UIImagePickerController()
+        controller.delegate = self
+        controller.sourceType = .photoLibrary
+        present(controller, animated: true, completion: nil)
+    }
     
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
     
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        self.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        imagePicked.image = image
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func UploadImage(){
+        // Get a reference to the storage service using the default Firebase App
+        let storage = Storage.storage()
+        
+        // Create a storage reference from our storage service
+        let storageRef = storage.reference()
+        let imageData = UIImagePNGRepresentation(self.image!)
+        let imagePath = "ios/\(self.SSIDText.text!).jpg"//whatever you want
+        storageRef.child(imagePath).putData(imageData!,metadata:nil){
+            (metadata, error) in
+            if let error = error{
+                print("Error uploading photo: \(error)")
+            }
+            else{
+                let downloadURL = metadata!.downloadURL()?.absoluteString
+                print(downloadURL)
+                self.ImageUrl = downloadURL
+                self.AddWifi()
+                //do whatever you want...
+            }
+        }
+    }
     ///Alamofire
     func AddWifi(){
-        let cm = ConnectionManager(action :"addlocios&desc=\(self.SSIDText.text ?? "")&pw=\(self.PWText.text ?? "")&lat=\(self.lat ?? "")&lng=\(self.lng ?? "")&img=null")
+        
+        let cm = ConnectionManager(action :"addlocios&desc=\(self.SSIDText.text ?? "")&pw=\(self.PWText.text ?? "")&lat=\(self.lat ?? "")&lng=\(self.lng ?? "")&img=\(self.ImageUrl ?? "")")
         
         //let url = "http://192.168.1.7/android/services.php?action=addloc&desc=\(self.SSIDText.text ?? "")&pw=\(self.PWText.text ?? "")&lat=\(self.lat ?? "")&lng=\(self.lng ?? "")&img=null"
         print ("url = \(cm.getURL())")
