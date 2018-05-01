@@ -14,7 +14,7 @@ import GooglePlaces
 import SwiftyJSON
 import FBSDKShareKit
 class VCWifiDetail: UIViewController ,GMSPlacePickerViewControllerDelegate{
-    let userid = DownloadImage.getFBID()
+    let userid = FBUserShare.getFBId()
     @IBOutlet weak var UIWifiImage: UIImageView!
     
     @IBOutlet weak var laWifiName: UILabel!

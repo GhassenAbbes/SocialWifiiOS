@@ -10,6 +10,8 @@ import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
 import Alamofire
+import SwiftyJSON
+import Toast_Swift
 class VCLogin: UIViewController{
     var dictData = Dictionary <String,Any>()
     var fbuser = FBUser()
@@ -41,7 +43,7 @@ class VCLogin: UIViewController{
                     self.fbuser.fb_gender = fbDetails["gender"] as! String
                     self.fbuser.fb_email = fbDetails["email"] as! String
                     self.fbuser.fb_access_token = FBSDKAccessToken.current().tokenString
-                    self.sharedFB(FB: self.fbuser)
+                    FBUserShare.putFB(FB: self.fbuser)
                     self.AddUser(fbuser: self.fbuser)
                     self.performSegue(withIdentifier: "Main", sender: self)
                     
@@ -91,6 +93,7 @@ class VCLogin: UIViewController{
     func sharedFB (FB:FBUser){
         let preferences = UserDefaults.standard
         
+        _ = preferences.setValue(FB.fb_email, forKey: "id")
         _ = preferences.setValue(FB.fb_email, forKey: "email")
         _ = preferences.setValue(FB.fb_first_name, forKey: "name")
         _ = preferences.setValue(FB.fb_last_name, forKey: "lastname")

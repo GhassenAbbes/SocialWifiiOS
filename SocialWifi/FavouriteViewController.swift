@@ -13,7 +13,7 @@ import Toast_Swift
 import CoreData
 
 class FavouriteViewController: UIViewController, UITableViewDataSource,UITableViewDelegate{
-    let userid = DownloadImage.getFBID()
+    let userid = FBUserShare.getFBId()
 
     @IBOutlet weak var tableView: UITableView!
     //@IBOutlet weak var FavTable: UITableView!
@@ -32,6 +32,7 @@ class FavouriteViewController: UIViewController, UITableViewDataSource,UITableVi
         ToastManager.shared.style = style
         
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         LoadLocations()
     }
