@@ -10,6 +10,8 @@ PODS:
     - Bolts (~> 1.7)
   - FBSDKLoginKit (4.31.1):
     - FBSDKCoreKit
+  - FBSDKShareKit (4.31.1):
+    - FBSDKCoreKit (~> 4.31.1)
   - Firebase/Core (4.11.0):
     - FirebaseAnalytics (= 4.1.0)
     - FirebaseCore (= 4.0.18)
@@ -29,7 +31,6 @@ PODS:
     - FirebaseAnalytics (~> 4.1)
     - FirebaseCore (~> 4.0)
     - GTMSessionFetcher/Core (~> 1.1)
-  - Floaty (4.0.0)
   - GoogleMaps (2.6.0):
     - GoogleMaps/Maps (= 2.6.0)
   - GoogleMaps/Base (2.6.0)
@@ -50,6 +51,9 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - NVActivityIndicatorView (4.1.1):
+    - NVActivityIndicatorView/Presenter (= 4.1.1)
+  - NVActivityIndicatorView/Presenter (4.1.1)
   - SwiftyJSON (4.0.0)
   - Toast-Swift (3.0.1)
 
@@ -57,13 +61,14 @@ DEPENDENCIES:
   - Alamofire
   - FBSDKCoreKit
   - FBSDKLoginKit
+  - FBSDKShareKit
   - Firebase/Core
   - Firebase/Storage
-  - Floaty
   - GoogleMaps
   - GooglePlacePicker
   - GooglePlaces
   - LSDialogViewController
+  - NVActivityIndicatorView
   - SwiftyJSON
   - Toast-Swift
 
@@ -72,12 +77,12 @@ SPEC CHECKSUMS:
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   FBSDKCoreKit: e08ccfcefa7bc1347a07c276dac9bf6c7fe57024
   FBSDKLoginKit: 99797ac39252fef6f72600b886f6ee60b4b29cab
+  FBSDKShareKit: e640c41c9fcd61929eeb3d0c21ad335103e7cb62
   Firebase: cc13dfab1038c8b45d7903e01fc690451d6d0b24
   FirebaseAnalytics: 3dfae28d4a5e06f86c4fae830efc2ad3fadb19bc
   FirebaseCore: b981f47e5254cbcfdeb483355300d743f6fcab2c
   FirebaseInstanceID: 8d20d890d65c917f9f7d9950b6e10a760ad34321
   FirebaseStorage: 9a863a2bb96c406958eeff7c2f1dfa9f44c44a13
-  Floaty: 4f88811bbf08521807f42355db6a9c0db85d5d78
   GoogleMaps: 42f91c68b7fa2f84d5c86597b18ceb99f5414c7f
   GooglePlacePicker: e4488625effb006f59de49e14b7a603e463e4261
   GooglePlaces: f6ddf33b75cef69e888907d9947c57198ed845f3
@@ -85,9 +90,10 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 390ea358e5a0d0133153806f744662dad933d06b
   LSDialogViewController: d493fb4ef63654c5a950069a1e2bfb0cb2127f45
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  NVActivityIndicatorView: 60109b9bf46efc2e71ab81453196ccdfdfeea870
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
 
-PODFILE CHECKSUM: 24bb30a6bbd42306050a02d917283e0a64c65e4c
+PODFILE CHECKSUM: ce4ea9295968dbd13779e88d1a81ed2e5f535f26
 
 COCOAPODS: 1.4.0

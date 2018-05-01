@@ -12,7 +12,7 @@ import Toast_Swift
 import GooglePlacePicker
 import GooglePlaces
 import SwiftyJSON
-
+import FBSDKShareKit
 class VCWifiDetail: UIViewController ,GMSPlacePickerViewControllerDelegate{
     let userid = DownloadImage.getFBID()
     @IBOutlet weak var UIWifiImage: UIImageView!
@@ -52,7 +52,7 @@ class VCWifiDetail: UIViewController ,GMSPlacePickerViewControllerDelegate{
     var pw:String?
     var nblike:String?
     var nbdislike:String?
-    
+    lazy var lazyImage:LazyImage = LazyImage()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -66,9 +66,7 @@ class VCWifiDetail: UIViewController ,GMSPlacePickerViewControllerDelegate{
         laWifiPassword.text = self.pw
         laUnlike.text = self.nbdislike
         laLikes.text = self.nblike
-        UIWifiImage.backgroundColor = UIColor.brown
-        //let url = "http://cache.marieclaire.fr/data/photo/w700_c17/137/gentils.jpg"
-        get_image(self.img!, UIWifiImage)
+        self.lazyImage.showWithSpinner(imageView:UIWifiImage, url:self.img!)
     }
     
     override func didReceiveMemoryWarning() {

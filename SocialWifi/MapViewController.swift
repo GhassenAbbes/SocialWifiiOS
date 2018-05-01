@@ -72,6 +72,9 @@ class MapViewController: UIViewController, UITextFieldDelegate , UISearchBarDele
         //
         //        txtFieldSearch.delegate=self
     }
+    override func viewWillAppear(_ animated: Bool) {
+        LoadLocations()
+    }
     func showMarker(){
         for i in 0..<self.previewDemoData.count {
             let marker = GMSMarker()

@@ -32,7 +32,10 @@ class FavouriteViewController: UIViewController, UITableViewDataSource,UITableVi
         ToastManager.shared.style = style
         
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        LoadLocations()
+    }
+        
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -41,6 +44,8 @@ class FavouriteViewController: UIViewController, UITableViewDataSource,UITableVi
     
     ///Alamofire
     func LoadLocations(){
+        self.tableData.removeAll()
+        self.tableView.reloadData()
         if Reachability.isConnectedToNetwork(){
             print ("connection")
             let fetchrequest:NSFetchRequest<WifiDB> = WifiDB.fetchRequest()
@@ -52,7 +57,7 @@ class FavouriteViewController: UIViewController, UITableViewDataSource,UITableVi
             }
             
             
-            self.view.makeToast("your  connected")
+            //self.view.makeToast("your  connected")
             let cm = ConnectionManager(action :"selectfav&id_user=\(self.userid )")
             Alamofire.request(cm.getURL()).responseJSON{ response in
                 

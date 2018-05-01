@@ -10,12 +10,24 @@ import UIKit
 import Alamofire
 import Toast_Swift
 import FirebaseStorage
+import NVActivityIndicatorView
+
+extension String
+{
+    func substring(of char: Character) -> String
+    {
+        let pos = self.index(of: char) ?? self.endIndex
+        let subString = self[..<pos]
+        return String(subString)
+    }
+}
 class AddPopupViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var lat:String?
     var lng:String?
     var ImageUrl:String?
     var image:UIImage?
+    let activityData = ActivityData()
     @IBOutlet weak var imagePicked: UIImageView!
     
     
@@ -26,7 +38,7 @@ class AddPopupViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var PWText: UITextField!
     
     @IBAction func CancelAction(_ sender: UIButton) {
-         dismiss(animated: true)
+         self.dismiss(animated: true)
     }
     
     @IBOutlet weak var SaveBtn: UIButton!
@@ -71,8 +83,10 @@ class AddPopupViewController: UIViewController, UIImagePickerControllerDelegate,
             self.view.makeToast("You can't add a wifi without its SSID or password!") // now uses the shared style
         }else{
             if (self.image != nil){
+                print("with image")
                 self.UploadImage()
             }else{
+                print("without image")
                 self.AddWifi()
             }
         }
@@ -97,13 +111,14 @@ class AddPopupViewController: UIViewController, UIImagePickerControllerDelegate,
     }
     
     func UploadImage(){
+        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
         // Get a reference to the storage service using the default Firebase App
         let storage = Storage.storage()
         
         // Create a storage reference from our storage service
         let storageRef = storage.reference()
         let imageData = UIImagePNGRepresentation(self.image!)
-        let imagePath = "ios/\(self.SSIDText.text!).jpg"//whatever you want
+        let imagePath = self.SSIDText.text!//whatever you want
         storageRef.child(imagePath).putData(imageData!,metadata:nil){
             (metadata, error) in
             if let error = error{
@@ -111,9 +126,11 @@ class AddPopupViewController: UIViewController, UIImagePickerControllerDelegate,
             }
             else{
                 let downloadURL = metadata!.downloadURL()?.absoluteString
-                print(downloadURL)
-                self.ImageUrl = downloadURL
+                self.ImageUrl = downloadURL?.substring(of: "&")
+                print(self.ImageUrl)
+                
                 self.AddWifi()
+                NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
                 //do whatever you want...
             }
         }
@@ -121,14 +138,14 @@ class AddPopupViewController: UIViewController, UIImagePickerControllerDelegate,
     ///Alamofire
     func AddWifi(){
         
-        let cm = ConnectionManager(action :"addlocios&desc=\(self.SSIDText.text ?? "")&pw=\(self.PWText.text ?? "")&lat=\(self.lat ?? "")&lng=\(self.lng ?? "")&img=\(self.ImageUrl ?? "")")
+        let cm = ConnectionManager(action :"addlocios&desc=\(self.SSIDText.text ?? "")&ssid=\(self.SSIDText.text ?? "")&pw=\(self.PWText.text ?? "")&lat=\(self.lat ?? "")&lng=\(self.lng ?? "")&img=\(self.ImageUrl ?? "")")
         
         //let url = "http://192.168.1.7/android/services.php?action=addloc&desc=\(self.SSIDText.text ?? "")&pw=\(self.PWText.text ?? "")&lat=\(self.lat ?? "")&lng=\(self.lng ?? "")&img=null"
         print ("url = \(cm.getURL())")
         Alamofire.request(cm.getURL()).responseString{ response in
             print (response.result.isSuccess)
             if     response.result.isSuccess{
-                self.dismiss(animated: true)
+                //self.dismiss(animated: true)
             }else{
                 self.view.makeToast("the wifi couldn't be added :(")
             }
