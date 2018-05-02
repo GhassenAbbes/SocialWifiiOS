@@ -18,14 +18,16 @@ class LocationPreviewView: UIView {
         self.layer.masksToBounds=true
         setupViews()
     }
-    
+    lazy var lazyImage:LazyImage = LazyImage()
+
     func setData(title: String, img: String,  price: String) {
         lblTitle.text = title
         //imgView.image = img
         if img == "null"{
             imgView.image = #imageLiteral(resourceName: "wifihotspot")
         }else{
-            get_image(img, imgView)
+            //get_image(img, imgView)
+             self.lazyImage.showWithSpinner(imageView:imgView, url:img)
         }
         lblPrice.text = price
     }
@@ -35,34 +37,38 @@ class LocationPreviewView: UIView {
     }
     func setupViews() {
         addSubview(containerView)
-        containerView.leftAnchor.constraint(equalTo: leftAnchor).isActive=true
-        containerView.topAnchor.constraint(equalTo: topAnchor).isActive=true
-        containerView.rightAnchor.constraint(equalTo: rightAnchor).isActive=true
-        containerView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive=true
+        containerView.leftAnchor.constraint(equalTo: leftAnchor, constant: 5).isActive=true
+        containerView.topAnchor.constraint(equalTo: topAnchor, constant: 5).isActive=true
+        containerView.rightAnchor.constraint(equalTo: rightAnchor, constant: -5).isActive=true
+        containerView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5).isActive=true
         
         containerView.addSubview(lblTitle)
         lblTitle.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 0).isActive=true
         lblTitle.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 0).isActive=true
         lblTitle.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: 0).isActive=true
         lblTitle.heightAnchor.constraint(equalToConstant: 35).isActive=true
-        
+        lblTitle.addSubview(imgsignal)
         addSubview(imgView)
-        imgView.leftAnchor.constraint(equalTo: leftAnchor).isActive=true
+        imgView.leftAnchor.constraint(equalTo: leftAnchor, constant: 5).isActive=true
         imgView.topAnchor.constraint(equalTo: lblTitle.bottomAnchor).isActive=true
-        imgView.rightAnchor.constraint(equalTo: rightAnchor).isActive=true
-        imgView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive=true
+        imgView.rightAnchor.constraint(equalTo: rightAnchor, constant: -5).isActive=true
+        imgView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5).isActive=true
         
         addSubview(lblPrice)
         lblPrice.centerXAnchor.constraint(equalTo: centerXAnchor).isActive=true
         lblPrice.centerYAnchor.constraint(equalTo: imgView.centerYAnchor).isActive=true
         lblPrice.widthAnchor.constraint(equalToConstant:200).isActive=true
         lblPrice.heightAnchor.constraint(equalToConstant: 40).isActive=true
-        
-//        addSubview(btnFav)
-//        btnFav.bottomAnchor.constraint(equalTo: imgView.bottomAnchor, constant: -10).isActive=true
-//        btnFav.rightAnchor.constraint(equalTo: imgView.rightAnchor, constant: -10).isActive=true
-//        btnFav.widthAnchor.constraint(equalToConstant: 20).isActive=true
-//
+        addSubview(imglocker)
+        imglocker.centerYAnchor.constraint(equalTo: imgView.centerYAnchor).isActive=true
+        imglocker.widthAnchor.constraint(equalToConstant: 40).isActive=true
+        imglocker.heightAnchor.constraint(equalToConstant: 40).isActive=true
+        imglocker.leftAnchor.constraint(equalTo: lblPrice.rightAnchor).isActive=true
+        //        addSubview(btnFav)
+        //        btnFav.bottomAnchor.constraint(equalTo: imgView.bottomAnchor, constant: -10).isActive=true
+        //        btnFav.rightAnchor.constraint(equalTo: imgView.rightAnchor, constant: -10).isActive=true
+        //        btnFav.widthAnchor.constraint(equalToConstant: 20).isActive=true
+        //
         
     }
     
@@ -78,7 +84,18 @@ class LocationPreviewView: UIView {
         v.translatesAutoresizingMaskIntoConstraints=false
         return v
     }()
-    
+    let imgsignal: UIImageView = {
+        let v=UIImageView()
+        v.image=#imageLiteral(resourceName: "wifi")
+        v.translatesAutoresizingMaskIntoConstraints=false
+        return v
+    }()
+    let imglocker: UIImageView = {
+        let v=UIImageView()
+        v.image=#imageLiteral(resourceName: "unlocked2")
+        v.translatesAutoresizingMaskIntoConstraints=false
+        return v
+    }()
     let lblTitle: UILabel = {
         let lbl=UILabel()
         lbl.text = "Name"
@@ -87,6 +104,23 @@ class LocationPreviewView: UIView {
         lbl.backgroundColor = UIColor.white
         lbl.textAlignment = .center
         lbl.translatesAutoresizingMaskIntoConstraints=false
+        
+        // create an NSMutableAttributedString that we'll append everything to
+        let fullString = NSMutableAttributedString(string: "Start of text")
+        
+        // create our NSTextAttachment
+        let image1Attachment = NSTextAttachment()
+        image1Attachment.image = UIImage(named: "wifi.png")
+        
+        // wrap the attachment in its own attributed string so we can append it
+        let image1String = NSAttributedString(attachment: image1Attachment)
+        
+        // add the NSTextAttachment wrapper to our full string, then add some more text.
+        fullString.append(image1String)
+        fullString.append(NSAttributedString(string: "End of text"))
+        
+        // draw the result in a label
+        lbl.attributedText = fullString
         return lbl
     }()
     
@@ -125,42 +159,42 @@ class LocationPreviewView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func get_image(_ url_str:String, _ imageView:UIImageView)
-    {
-        
-        let url:URL = URL(string: url_str)!
-        let session = URLSession(configuration: .default)
-        
-        let getImageFromUrl = session.dataTask(with: url) { (data, response, error) in
-            
-            //if there is any error
-            if let e = error {
-                //displaying the message
-                print("Error Occurred: \(e)")
-                
-            } else {
-                //in case of now error, checking wheather the response is nil or not
-                if (response as? HTTPURLResponse) != nil {
-                    
-                    //checking if the response contains an image
-                    if let imageData = data {
-                        
-                        //getting the image
-                        let image = UIImage(data: imageData)
-                        
-                        //displaying the image
-                        imageView.image = image
-                        
-                    } else {
-                        print("Image file is currupted")
-                    }
-                } else {
-                    print("No response from server")
-                }
-            }
-        }
-        getImageFromUrl.resume()
-    }
+//    func get_image(_ url_str:String, _ imageView:UIImageView)
+//    {
+//
+//        let url:URL = URL(string: url_str)!
+//        let session = URLSession(configuration: .default)
+//
+//        let getImageFromUrl = session.dataTask(with: url) { (data, response, error) in
+//
+//            //if there is any error
+//            if let e = error {
+//                //displaying the message
+//                print("Error Occurred: \(e)")
+//
+//            } else {
+//                //in case of now error, checking wheather the response is nil or not
+//                if (response as? HTTPURLResponse) != nil {
+//
+//                    //checking if the response contains an image
+//                    if let imageData = data {
+//
+//                        //getting the image
+//                        let image = UIImage(data: imageData)
+//
+//                        //displaying the image
+//                        imageView.image = image
+//
+//                    } else {
+//                        print("Image file is currupted")
+//                    }
+//                } else {
+//                    print("No response from server")
+//                }
+//            }
+//        }
+//        getImageFromUrl.resume()
+//    }
 }
 
 

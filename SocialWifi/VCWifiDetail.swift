@@ -22,6 +22,8 @@ class VCWifiDetail: UIViewController ,GMSPlacePickerViewControllerDelegate{
     
     @IBOutlet weak var laUnlike: UILabel!
     @IBOutlet weak var laLikes: UILabel!
+    @IBOutlet weak var laLocName: UILabel!
+    @IBOutlet weak var laWifiDesc: UILabel!
     @IBOutlet weak var AddFav: UIButton!
     
     @IBAction func AddFav(_ sender: Any) {
@@ -52,6 +54,8 @@ class VCWifiDetail: UIViewController ,GMSPlacePickerViewControllerDelegate{
     var pw:String?
     var nblike:String?
     var nbdislike:String?
+    var loc_name:String?
+    var disc:String?
     lazy var lazyImage:LazyImage = LazyImage()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,6 +70,8 @@ class VCWifiDetail: UIViewController ,GMSPlacePickerViewControllerDelegate{
         laWifiPassword.text = self.pw
         laUnlike.text = self.nbdislike
         laLikes.text = self.nblike
+        laLocName.text = self.loc_name
+        laWifiDesc.text = self.disc
         self.lazyImage.showWithSpinner(imageView:UIWifiImage, url:self.img!)
     }
     
@@ -134,42 +140,42 @@ class VCWifiDetail: UIViewController ,GMSPlacePickerViewControllerDelegate{
 //    }
     
     
-    func get_image(_ url_str:String, _ imageView:UIImageView)
-    {
-        
-        let url:URL = URL(string: url_str)!
-        let session = URLSession(configuration: .default)
-        
-        let getImageFromUrl = session.dataTask(with: url) { (data, response, error) in
-            
-            //if there is any error
-            if let e = error {
-                //displaying the message
-                print("Error Occurred: \(e)")
-                
-            } else {
-                //in case of now error, checking wheather the response is nil or not
-                if (response as? HTTPURLResponse) != nil {
-                    
-                    //checking if the response contains an image
-                    if let imageData = data {
-                        
-                        //getting the image
-                        let image = UIImage(data: imageData)
-                        
-                        //displaying the image
-                        imageView.image = image
-                        
-                    } else {
-                        print("Image file is currupted")
-                    }
-                } else {
-                    print("No response from server")
-                }
-            }
-        }
-        getImageFromUrl.resume()
-    }
+//    func get_image(_ url_str:String, _ imageView:UIImageView)
+//    {
+//
+//        let url:URL = URL(string: url_str)!
+//        let session = URLSession(configuration: .default)
+//
+//        let getImageFromUrl = session.dataTask(with: url) { (data, response, error) in
+//
+//            //if there is any error
+//            if let e = error {
+//                //displaying the message
+//                print("Error Occurred: \(e)")
+//
+//            } else {
+//                //in case of now error, checking wheather the response is nil or not
+//                if (response as? HTTPURLResponse) != nil {
+//
+//                    //checking if the response contains an image
+//                    if let imageData = data {
+//
+//                        //getting the image
+//                        let image = UIImage(data: imageData)
+//
+//                        //displaying the image
+//                        imageView.image = image
+//
+//                    } else {
+//                        print("Image file is currupted")
+//                    }
+//                } else {
+//                    print("No response from server")
+//                }
+//            }
+//        }
+//        getImageFromUrl.resume()
+//    }
     
     
     func AddVote(tag: Int) {

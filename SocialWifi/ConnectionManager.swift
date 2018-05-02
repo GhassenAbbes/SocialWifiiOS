@@ -9,7 +9,7 @@
 import Foundation
 
 class ConnectionManager  {
-    let ip = "http://192.168.1.103/"
+    let ip = "http://192.168.1.3/"
     let path =  "android/services.php?action="
     var action :String
     

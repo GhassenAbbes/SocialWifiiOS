@@ -36,7 +36,7 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YIu-Mb-0nE">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
-                                    <navigationItem title="Favourit Location" id="A7e-Id-Nbm">
+                                    <navigationItem title="Wifi Location" id="A7e-Id-Nbm">
                                         <barButtonItem key="leftBarButtonItem" systemItem="reply" id="78L-q9-PTD">
                                             <connections>
                                                 <action selector="Cancel:" destination="qdQ-aG-dqn" id="5XA-Mt-T5x"/>

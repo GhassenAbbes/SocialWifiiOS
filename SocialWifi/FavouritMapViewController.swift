@@ -242,11 +242,11 @@ extension FavouritMapViewController: CLLocationManagerDelegate {
         let location = locations.last?.coordinate
         self.currentlocation=locations.last
         print("locations = \(String(describing: location?.latitude)) \(String(describing: location?.longitude))")
-        let lat = (location?.latitude)!
-        let long = (location?.longitude)!
-        let camera = GMSCameraPosition.camera(withLatitude: lat, longitude: long, zoom: 15)
-        
-        self.mapView.animate(to: camera)
+//        let lat = (location?.latitude)!
+//        let long = (location?.longitude)!
+//        let camera = GMSCameraPosition.camera(withLatitude: lat, longitude: long, zoom: 15)
+//        
+//        self.mapView.animate(to: camera)
         
         //showPartyMarkers(lat: lat, long: long)
     }

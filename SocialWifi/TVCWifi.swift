@@ -16,6 +16,9 @@ class TVCWifi: UITableViewCell {
     @IBOutlet weak var laWifiDislike: UILabel!
     @IBOutlet weak var laWifiPassword: UILabel!
     @IBOutlet weak var laWifiLike: UILabel!
+    
+    @IBOutlet weak var cellView: UIView!
+    @IBOutlet weak var infoView: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

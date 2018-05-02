@@ -18,17 +18,18 @@ class Wifi  {
     var nblike:String
     var nbdislike:String
     var ssid:String
-//    init(id_loc:String,desc_loc: String,wifi_pass :String, lat :String ,lng :String , img :String,  mac :Any) {
-//        self.id_loc = id_loc
-//        self.desc_loc = desc_loc
-//        self.wifi_pass = wifi_pass
-//        self.lat = lat
-//        self.lng = lng
-//        self.img = img
-//        self.mac = mac
-//    }
+    var loc_name:String
+    //    init(id_loc:String,desc_loc: String,wifi_pass :String, lat :String ,lng :String , img :String,  mac :Any) {
+    //        self.id_loc = id_loc
+    //        self.desc_loc = desc_loc
+    //        self.wifi_pass = wifi_pass
+    //        self.lat = lat
+    //        self.lng = lng
+    //        self.img = img
+    //        self.mac = mac
+    //    }
     
-    init(id_loc:String,desc_loc: String,wifi_pass :String, lat :String ,lng :String , img :String,  mac :Any, nblike:String, nbdislike:String, ssid:String) {
+    init(id_loc:String,desc_loc: String,wifi_pass :String, lat :String ,lng :String , img :String,  mac :Any, nblike:String, nbdislike:String, ssid:String,loc_name:String) {
         self.id_loc = id_loc
         self.desc_loc = desc_loc
         self.wifi_pass = wifi_pass
@@ -39,6 +40,7 @@ class Wifi  {
         self.nblike = nblike
         self.nbdislike = nbdislike
         self.ssid = ssid
+        self.loc_name = loc_name
     }
 }
 

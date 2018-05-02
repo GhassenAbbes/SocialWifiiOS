@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		393391FC20993395001F91CA /* WifiDBCoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393391F920993394001F91CA /* WifiDBCoreDataProperties.swift */; };
+		393391FD20993395001F91CA /* WifiDBCoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393391FA20993394001F91CA /* WifiDBCoreDataClass.swift */; };
+		393391FF20993AFA001F91CA /* AddPopupControllerView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 393391FE20993AFA001F91CA /* AddPopupControllerView.storyboard */; };
+		3933920120994543001F91CA /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3933920020994543001F91CA /* Map.storyboard */; };
+		39339203209A4508001F91CA /* WifiDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39339202209A4508001F91CA /* WifiDetail.storyboard */; };
 		398ED9A0207D6A0900A55C17 /* FavouritMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398ED99F207D6A0900A55C17 /* FavouritMapViewController.swift */; };
 		39BA6BFE2083E5DB0015E960 /* VCWifiDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BA6BFD2083E5DB0015E960 /* VCWifiDetail.swift */; };
 		39BA6C002083EEE00015E960 /* FBUserShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BA6BFF2083EEE00015E960 /* FBUserShare.swift */; };
@@ -18,15 +23,11 @@
 		39E4EEBE207D2997003ED8D6 /* AddPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E4EEBD207D2997003ED8D6 /* AddPopupViewController.swift */; };
 		39E4EEC0207D2A26003ED8D6 /* FavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E4EEBF207D2A26003ED8D6 /* FavouriteViewController.swift */; };
 		39E4EEC2207D2A84003ED8D6 /* FavViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E4EEC1207D2A84003ED8D6 /* FavViewCell.swift */; };
-		39E4EEC4207D2AC5003ED8D6 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39E4EEC3207D2AC5003ED8D6 /* Map.storyboard */; };
-		39E4EEC6207D2B36003ED8D6 /* AddPopupControllerView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39E4EEC5207D2B36003ED8D6 /* AddPopupControllerView.storyboard */; };
 		39E4EEC8207D2B92003ED8D6 /* FavouriteStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39E4EEC7207D2B92003ED8D6 /* FavouriteStoryboard.storyboard */; };
 		39F47CE12080F92800BAD6EF /* FavouriteMapStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39F47CE02080F92800BAD6EF /* FavouriteMapStoryboard.storyboard */; };
 		39F47CE32082473000BAD6EF /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F47CE22082473000BAD6EF /* Reachability.swift */; };
 		39F47CE92082704B00BAD6EF /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F47CE82082704B00BAD6EF /* PersistenceService.swift */; };
 		8500385E208FB7C4008754A0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8500385D208FB7C4008754A0 /* ViewController.swift */; };
-		85899A29208B95D1006DDAEA /* WifiDBCoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85899A27208B95D1006DDAEA /* WifiDBCoreDataClass.swift */; };
-		85899A2A208B95D1006DDAEA /* WifiDBCoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85899A28208B95D1006DDAEA /* WifiDBCoreDataProperties.swift */; };
 		8594D7E220744B2D00F4C27D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594D7E120744B2D00F4C27D /* AppDelegate.swift */; };
 		8594D7E720744B2D00F4C27D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8594D7E520744B2D00F4C27D /* Main.storyboard */; };
 		8594D7EA20744B2D00F4C27D /* SocialWifi.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8594D7E820744B2D00F4C27D /* SocialWifi.xcdatamodeld */; };
@@ -36,7 +37,6 @@
 		8594F2C820968A75004DD3B6 /* VCProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594F2C720968A75004DD3B6 /* VCProfile.swift */; };
 		8597D51B2099007700324FAC /* TVCWifi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8597D51A2099007700324FAC /* TVCWifi.swift */; };
 		85A12FF0208D526A00C357AB /* LazyImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A12FEF208D526A00C357AB /* LazyImage.swift */; };
-		85B12E0C208BAF5100FC5005 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 85B12E0B208BAF5100FC5005 /* GoogleService-Info.plist */; };
 		85CAB9E2207AB21300B6ABFC /* FBUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CAB9E1207AB21300B6ABFC /* FBUser.swift */; };
 		85CAB9E4207ACFDB00B6ABFC /* VCMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CAB9E3207ACFDB00B6ABFC /* VCMap.swift */; };
 		85CAB9E6207ACFF000B6ABFC /* VCFavoris.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CAB9E5207ACFF000B6ABFC /* VCFavoris.swift */; };
@@ -46,6 +46,12 @@
 
 /* Begin PBXFileReference section */
 		2B58524B5920E6B6AFCB241E /* Pods_SocialWifi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialWifi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		393391F920993394001F91CA /* WifiDBCoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiDBCoreDataProperties.swift; sourceTree = "<group>"; };
+		393391FA20993394001F91CA /* WifiDBCoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiDBCoreDataClass.swift; sourceTree = "<group>"; };
+		393391FB20993394001F91CA /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		393391FE20993AFA001F91CA /* AddPopupControllerView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddPopupControllerView.storyboard; sourceTree = "<group>"; };
+		3933920020994543001F91CA /* Map.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
+		39339202209A4508001F91CA /* WifiDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WifiDetail.storyboard; sourceTree = "<group>"; };
 		398ED99F207D6A0900A55C17 /* FavouritMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritMapViewController.swift; sourceTree = "<group>"; };
 		39BA6BFD2083E5DB0015E960 /* VCWifiDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCWifiDetail.swift; sourceTree = "<group>"; };
 		39BA6BFF2083EEE00015E960 /* FBUserShare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBUserShare.swift; sourceTree = "<group>"; };
@@ -57,16 +63,12 @@
 		39E4EEBD207D2997003ED8D6 /* AddPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPopupViewController.swift; sourceTree = "<group>"; };
 		39E4EEBF207D2A26003ED8D6 /* FavouriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewController.swift; sourceTree = "<group>"; };
 		39E4EEC1207D2A84003ED8D6 /* FavViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavViewCell.swift; sourceTree = "<group>"; };
-		39E4EEC3207D2AC5003ED8D6 /* Map.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
-		39E4EEC5207D2B36003ED8D6 /* AddPopupControllerView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddPopupControllerView.storyboard; sourceTree = "<group>"; };
 		39E4EEC7207D2B92003ED8D6 /* FavouriteStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FavouriteStoryboard.storyboard; sourceTree = "<group>"; };
 		39F47CE02080F92800BAD6EF /* FavouriteMapStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FavouriteMapStoryboard.storyboard; sourceTree = "<group>"; };
 		39F47CE22082473000BAD6EF /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		39F47CE82082704B00BAD6EF /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
 		787A6D489B05868AA1CB42B9 /* Pods-SocialWifi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialWifi.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialWifi/Pods-SocialWifi.release.xcconfig"; sourceTree = "<group>"; };
 		8500385D208FB7C4008754A0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		85899A27208B95D1006DDAEA /* WifiDBCoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WifiDBCoreDataClass.swift; path = "../../../../../../Volumes/VMware Shared Folders/Téléchargements/IOSPics/WifiDBCoreDataClass.swift"; sourceTree = "<group>"; };
-		85899A28208B95D1006DDAEA /* WifiDBCoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WifiDBCoreDataProperties.swift; path = "../../../../../../Volumes/VMware Shared Folders/Téléchargements/IOSPics/WifiDBCoreDataProperties.swift"; sourceTree = "<group>"; };
 		8594D7DE20744B2D00F4C27D /* SocialWifi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialWifi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8594D7E120744B2D00F4C27D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8594D7E620744B2D00F4C27D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -78,7 +80,6 @@
 		8594F2C720968A75004DD3B6 /* VCProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCProfile.swift; sourceTree = "<group>"; };
 		8597D51A2099007700324FAC /* TVCWifi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVCWifi.swift; sourceTree = "<group>"; };
 		85A12FEF208D526A00C357AB /* LazyImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyImage.swift; sourceTree = "<group>"; };
-		85B12E0B208BAF5100FC5005 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Volumes/VMware Shared Folders/Téléchargements/IOSPics/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		85CAB9E1207AB21300B6ABFC /* FBUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBUser.swift; sourceTree = "<group>"; };
 		85CAB9E3207ACFDB00B6ABFC /* VCMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCMap.swift; sourceTree = "<group>"; };
 		85CAB9E5207ACFF000B6ABFC /* VCFavoris.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCFavoris.swift; sourceTree = "<group>"; };
@@ -119,9 +120,9 @@
 		8594D7E020744B2D00F4C27D /* SocialWifi */ = {
 			isa = PBXGroup;
 			children = (
-				85B12E0B208BAF5100FC5005 /* GoogleService-Info.plist */,
-				85899A27208B95D1006DDAEA /* WifiDBCoreDataClass.swift */,
-				85899A28208B95D1006DDAEA /* WifiDBCoreDataProperties.swift */,
+				393391FB20993394001F91CA /* GoogleService-Info.plist */,
+				393391FA20993394001F91CA /* WifiDBCoreDataClass.swift */,
+				393391F920993394001F91CA /* WifiDBCoreDataProperties.swift */,
 				8594D7E120744B2D00F4C27D /* AppDelegate.swift */,
 				8594D7F620744E2A00F4C27D /* VCLogin.swift */,
 				85CAB9E3207ACFDB00B6ABFC /* VCMap.swift */,
@@ -144,8 +145,6 @@
 				39E4EEBD207D2997003ED8D6 /* AddPopupViewController.swift */,
 				39E4EEBF207D2A26003ED8D6 /* FavouriteViewController.swift */,
 				39E4EEC1207D2A84003ED8D6 /* FavViewCell.swift */,
-				39E4EEC3207D2AC5003ED8D6 /* Map.storyboard */,
-				39E4EEC5207D2B36003ED8D6 /* AddPopupControllerView.storyboard */,
 				39E4EEC7207D2B92003ED8D6 /* FavouriteStoryboard.storyboard */,
 				39F47CE02080F92800BAD6EF /* FavouriteMapStoryboard.storyboard */,
 				398ED99F207D6A0900A55C17 /* FavouritMapViewController.swift */,
@@ -154,6 +153,9 @@
 				39BA6BFD2083E5DB0015E960 /* VCWifiDetail.swift */,
 				39BA6BFF2083EEE00015E960 /* FBUserShare.swift */,
 				85A12FEF208D526A00C357AB /* LazyImage.swift */,
+				393391FE20993AFA001F91CA /* AddPopupControllerView.storyboard */,
+				3933920020994543001F91CA /* Map.storyboard */,
+				39339202209A4508001F91CA /* WifiDetail.storyboard */,
 			);
 			path = SocialWifi;
 			sourceTree = "<group>";
@@ -238,12 +240,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8594D7EF20744B2D00F4C27D /* LaunchScreen.storyboard in Resources */,
-				85B12E0C208BAF5100FC5005 /* GoogleService-Info.plist in Resources */,
+				3933920120994543001F91CA /* Map.storyboard in Resources */,
 				8594D7EC20744B2D00F4C27D /* Assets.xcassets in Resources */,
+				393391FF20993AFA001F91CA /* AddPopupControllerView.storyboard in Resources */,
 				8594D7E720744B2D00F4C27D /* Main.storyboard in Resources */,
-				39E4EEC6207D2B36003ED8D6 /* AddPopupControllerView.storyboard in Resources */,
-				39E4EEC4207D2AC5003ED8D6 /* Map.storyboard in Resources */,
 				39E4EEC8207D2B92003ED8D6 /* FavouriteStoryboard.storyboard in Resources */,
+				39339203209A4508001F91CA /* WifiDetail.storyboard in Resources */,
 				39F47CE12080F92800BAD6EF /* FavouriteMapStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -338,10 +340,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				393391FC20993395001F91CA /* WifiDBCoreDataProperties.swift in Sources */,
 				8597D51B2099007700324FAC /* TVCWifi.swift in Sources */,
 				8594D7EA20744B2D00F4C27D /* SocialWifi.xcdatamodeld in Sources */,
 				85CAB9E6207ACFF000B6ABFC /* VCFavoris.swift in Sources */,
-				85899A2A208B95D1006DDAEA /* WifiDBCoreDataProperties.swift in Sources */,
 				8594D7F720744E2A00F4C27D /* VCLogin.swift in Sources */,
 				39E4EEB8207D291A003ED8D6 /* MapViewController.swift in Sources */,
 				39E4EEC0207D2A26003ED8D6 /* FavouriteViewController.swift in Sources */,
@@ -362,8 +364,8 @@
 				39E4EEBE207D2997003ED8D6 /* AddPopupViewController.swift in Sources */,
 				39E4EEBC207D2968003ED8D6 /* LocationPreviewView.swift in Sources */,
 				8594D7E220744B2D00F4C27D /* AppDelegate.swift in Sources */,
+				393391FD20993395001F91CA /* WifiDBCoreDataClass.swift in Sources */,
 				85A12FF0208D526A00C357AB /* LazyImage.swift in Sources */,
-				85899A29208B95D1006DDAEA /* WifiDBCoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

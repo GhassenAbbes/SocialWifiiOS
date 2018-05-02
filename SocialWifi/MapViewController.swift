@@ -52,7 +52,7 @@ class MapViewController: UIViewController, UITextFieldDelegate , UISearchBarDele
         
         
         //
-       
+        
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestAlwaysAuthorization()
@@ -60,7 +60,7 @@ class MapViewController: UIViewController, UITextFieldDelegate , UISearchBarDele
         locationManager.startMonitoringSignificantLocationChanges()
         //
         setupViews()
-        LoadLocations()
+        //LoadLocations()
         var style = ToastStyle()
         style.messageColor = .orange
         style.messageAlignment = .center
@@ -71,9 +71,6 @@ class MapViewController: UIViewController, UITextFieldDelegate , UISearchBarDele
         //        initGoogleMaps()
         //
         //        txtFieldSearch.delegate=self
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        LoadLocations()
     }
     func showMarker(){
         for i in 0..<self.previewDemoData.count {
@@ -110,10 +107,23 @@ class MapViewController: UIViewController, UITextFieldDelegate , UISearchBarDele
             return
         }
         
+        let currentplacetype = self.previewDemoData.filter({place -> Bool in
+            place.loc_name.lowercased().contains(searchText.lowercased())
+            
+        })
+        print(searchText)
+        print (currentplace)
+        if !currentplacetype.isEmpty {
+            let camera = GMSCameraPosition.camera(withLatitude: Double(currentplacetype.first!.lat)!, longitude: Double(currentplacetype.first!.lng)!, zoom: 15.0)
+            self.mapView.animate(to: camera)
+            return
+        }
+        
     }
     
     ///Alamofire
     func LoadLocations(){
+        
         let cm = ConnectionManager(action :"selectloc")
         Alamofire.request(cm.getURL()).responseJSON{ response in
             print(cm.getURL())
@@ -133,9 +143,10 @@ class MapViewController: UIViewController, UITextFieldDelegate , UISearchBarDele
                     let id = Slocation["id_loc"] as! String
                     let nblike = Slocation["nblike"] as! String
                     let nbdislike = Slocation["nbdislike"] as! String
-                     let ssid = Slocation["ssid"] as! String
+                    let ssid = Slocation["ssid"] as! String
+                    let loc_name = Slocation["loc_name"] as! String
                     //print(id)
-                    let w = Wifi(id_loc: id, desc_loc: desc_loc, wifi_pass: wifi_pass, lat: slat, lng: slng, img: img, mac: MAC , nblike: nblike , nbdislike: nbdislike,ssid: ssid)
+                    let w = Wifi(id_loc: id, desc_loc: desc_loc, wifi_pass: wifi_pass, lat: slat, lng: slng, img: img, mac: MAC , nblike: nblike , nbdislike: nbdislike,ssid: ssid , loc_name:loc_name)
                     
                     self.previewDemoData.append(w)
                     self.descTable.append(desc_loc)
@@ -200,27 +211,27 @@ class MapViewController: UIViewController, UITextFieldDelegate , UISearchBarDele
     // MARK: GOOGLE MAP DELEGATE
     
     
-//    func showPartyMarkers(lat: Double, long: Double) {
-//        mapView.clear()
-//        for i in 0..<3 {
-//            let randNum=Double(arc4random_uniform(30))/10000
-//            let marker=GMSMarker()
-//            let customMarker = CustomMarkerView(frame: CGRect(x: 0, y: 0, width: customMarkerWidth, height: customMarkerHeight), image: #imageLiteral(resourceName: "restaurant1") , borderColor: UIColor.darkGray, tag: i)
-//            marker.iconView=customMarker
-//            marker.tracksInfoWindowChanges = true
-//            let randInt = arc4random_uniform(4)
-//            if randInt == 0 {
-//                marker.position = CLLocationCoordinate2D(latitude: lat+randNum, longitude: long-randNum)
-//            } else if randInt == 1 {
-//                marker.position = CLLocationCoordinate2D(latitude: lat-randNum, longitude: long+randNum)
-//            } else if randInt == 2 {
-//                marker.position = CLLocationCoordinate2D(latitude: lat-randNum, longitude: long-randNum)
-//            } else {
-//                marker.position = CLLocationCoordinate2D(latitude: lat+randNum, longitude: long+randNum)
-//            }
-//            marker.map = self.mapView
-//        }
-//    }
+    //    func showPartyMarkers(lat: Double, long: Double) {
+    //        mapView.clear()
+    //        for i in 0..<3 {
+    //            let randNum=Double(arc4random_uniform(30))/10000
+    //            let marker=GMSMarker()
+    //            let customMarker = CustomMarkerView(frame: CGRect(x: 0, y: 0, width: customMarkerWidth, height: customMarkerHeight), image: #imageLiteral(resourceName: "restaurant1") , borderColor: UIColor.darkGray, tag: i)
+    //            marker.iconView=customMarker
+    //            marker.tracksInfoWindowChanges = true
+    //            let randInt = arc4random_uniform(4)
+    //            if randInt == 0 {
+    //                marker.position = CLLocationCoordinate2D(latitude: lat+randNum, longitude: long-randNum)
+    //            } else if randInt == 1 {
+    //                marker.position = CLLocationCoordinate2D(latitude: lat-randNum, longitude: long+randNum)
+    //            } else if randInt == 2 {
+    //                marker.position = CLLocationCoordinate2D(latitude: lat-randNum, longitude: long-randNum)
+    //            } else {
+    //                marker.position = CLLocationCoordinate2D(latitude: lat+randNum, longitude: long+randNum)
+    //            }
+    //            marker.map = self.mapView
+    //        }
+    //    }
     
     @objc func btnMyLocationAction() {
         let location: CLLocation? = mapView.myLocation
@@ -240,7 +251,8 @@ class MapViewController: UIViewController, UITextFieldDelegate , UISearchBarDele
         //        self.navigationController?.pushViewController(v, animated: true)
         print("marker info window tapped \(pos)")
         if (currentlocation != nil){
-            self.drawPath(startLocation: currentlocation!, endLocation: CLLocation(latitude: pos.latitude, longitude: pos.longitude))
+            //self.drawPath(startLocation: currentlocation!, endLocation: CLLocation(latitude: pos.latitude, longitude: pos.longitude))
+            print ("location tapped where there was drawpath in map")
         }else{
             self.view.makeToast("You need your GPS ON to get directions!")
             
@@ -276,10 +288,10 @@ class MapViewController: UIViewController, UITextFieldDelegate , UISearchBarDele
         self.mapView.isMyLocationEnabled=true
         mapView.settings.allowScrollGesturesDuringRotateOrZoom=true
         self.viewformap.addSubview(self.mapView)
-//        self.mapView.topAnchor.constraint(equalTo: view.topAnchor).isActive=true
-//        self.mapView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive=true
-//        self.mapView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive=true
-//        self.mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 60).isActive=true
+        //        self.mapView.topAnchor.constraint(equalTo: view.topAnchor).isActive=true
+        //        self.mapView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive=true
+        //        self.mapView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive=true
+        //        self.mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 60).isActive=true
         
         locationPreviewView = LocationPreviewView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 190))
         
@@ -305,7 +317,7 @@ class MapViewController: UIViewController, UITextFieldDelegate , UISearchBarDele
     let btnAdd: UIButton = {
         let btn=UIButton()
         btn.backgroundColor = UIColor.white
-        btn.setImage(#imageLiteral(resourceName: "add"), for: .normal)
+        btn.setImage(#imageLiteral(resourceName: "plus"), for: .normal)
         btn.layer.cornerRadius = 25
         btn.clipsToBounds=true
         btn.tintColor = UIColor.gray
@@ -316,6 +328,10 @@ class MapViewController: UIViewController, UITextFieldDelegate , UISearchBarDele
     }()
     
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.mapView.clear()
+        LoadLocations()
+    }
     
     @objc func AddTapped() {
         
@@ -337,66 +353,68 @@ class MapViewController: UIViewController, UITextFieldDelegate , UISearchBarDele
         }
     }
     
-        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if segue.identifier == "showdetailswifi" {
-                let popup = segue.destination as! VCWifiDetail
-                popup.lat=self.selectedWifi?.lat
-                popup.lng=self.selectedWifi?.lng
-                popup.nbdislike=self.selectedWifi?.nbdislike
-                popup.nblike=self.selectedWifi?.nblike
-                popup.id=self.selectedWifi?.id_loc
-                popup.img=self.selectedWifi?.img
-                popup.ssid=self.selectedWifi?.ssid
-                popup.pw=self.selectedWifi?.wifi_pass
-            }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showdetailswifi" {
+            let popup = segue.destination as! VCWifiDetail
+            popup.lat=self.selectedWifi?.lat
+            popup.lng=self.selectedWifi?.lng
+            popup.nbdislike=self.selectedWifi?.nbdislike
+            popup.nblike=self.selectedWifi?.nblike
+            popup.id=self.selectedWifi?.id_loc
+            popup.img=self.selectedWifi?.img
+            popup.ssid=self.selectedWifi?.ssid
+            popup.pw=self.selectedWifi?.wifi_pass
+            popup.loc_name=self.selectedWifi?.loc_name
+            popup.disc=self.selectedWifi?.desc_loc
         }
+    }
     
     
     //MARK: - this is function for create direction path, from start location to desination location
     
-    func drawPath (startLocation: CLLocation, endLocation: CLLocation)
-    {
-        let origin = "\(startLocation.coordinate.latitude),\(startLocation.coordinate.longitude)"
-        let destination = "\(endLocation.coordinate.latitude),\(endLocation.coordinate.longitude)"
-        
-        
-        let url = "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&mode=driving"
-        
-        Alamofire.request(url).responseJSON  { response in
-            
-            print(response.request as Any)  // original URL request
-            print(response.response as Any) // HTTP URL response
-            print(response.data as Any)     // server data
-            print(response.result as Any)   // result of response serialization
-            
-            let optjson = try? JSON(data: response.data!)
-            guard let json = optjson else {
-                return
-            }
-            let routes = json["routes"].arrayValue
-            if routes.count>0 {
-                // print route using Polyline
-                for route in routes
-                {
-                    let routeOverviewPolyline = route["overview_polyline"].dictionary
-                    let points = routeOverviewPolyline?["points"]?.stringValue
-                    let path = GMSPath.init(fromEncodedPath: points!)
-                    let polyline = GMSPolyline.init(path: path)
-                    polyline.strokeWidth = 4
-                    polyline.strokeColor = UIColor.red
-                    polyline.map = self.mapView
-                }
-            }else {
-                self.view.makeToast("No direction available :(")
-                
-            }
-            
-        }
-    }
+//    func drawPath (startLocation: CLLocation, endLocation: CLLocation)
+//    {
+//        let origin = "\(startLocation.coordinate.latitude),\(startLocation.coordinate.longitude)"
+//        let destination = "\(endLocation.coordinate.latitude),\(endLocation.coordinate.longitude)"
+//
+//
+//        let url = "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&mode=driving"
+//
+//        Alamofire.request(url).responseJSON  { response in
+//
+//            print(response.request as Any)  // original URL request
+//            print(response.response as Any) // HTTP URL response
+//            print(response.data as Any)     // server data
+//            print(response.result as Any)   // result of response serialization
+//
+//            let optjson = try? JSON(data: response.data!)
+//            guard let json = optjson else {
+//                return
+//            }
+//            let routes = json["routes"].arrayValue
+//            if routes.count>0 {
+//                // print route using Polyline
+//                for route in routes
+//                {
+//                    let routeOverviewPolyline = route["overview_polyline"].dictionary
+//                    let points = routeOverviewPolyline?["points"]?.stringValue
+//                    let path = GMSPath.init(fromEncodedPath: points!)
+//                    let polyline = GMSPolyline.init(path: path)
+//                    polyline.strokeWidth = 4
+//                    polyline.strokeColor = UIColor.red
+//                    polyline.map = self.mapView
+//                }
+//            }else {
+//                self.view.makeToast("No direction available :(")
+//
+//            }
+//
+//        }
+//    }
+//
     
-   
     
-
+    
 }
 
 // maps functions
@@ -408,7 +426,7 @@ extension MapViewController: GMSMapViewDelegate{
         let customMarker = CustomMarkerView(frame: CGRect(x: 0, y: 0, width: customMarkerWidth, height: customMarkerHeight), image: img, borderColor: UIColor.white, tag: customMarkerView.tag)
         
         marker.iconView = customMarker
-
+        
         
         return false
     }
