@@ -147,7 +147,7 @@ class FavouriteViewController: UIViewController, UITableViewDataSource,UITableVi
             
         }
         action.image = #imageLiteral(resourceName: "eye")
-        action.backgroundColor = .blue
+        action.backgroundColor = UIColor(red:0.01, green:0.29, blue:0.19, alpha:1.0)
         return action
     }
     //MARK: - table view delegate
