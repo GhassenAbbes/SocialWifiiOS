@@ -22,5 +22,8 @@ extension WifiDB {
     @NSManaged public var lat: String?
     @NSManaged public var lng: String?
     @NSManaged public var img: String?
+    @NSManaged public var name: String?
+    @NSManaged public var likes: String?
+    @NSManaged public var dislikes: String?
 
 }

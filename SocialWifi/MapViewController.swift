@@ -123,40 +123,41 @@ class MapViewController: UIViewController, UITextFieldDelegate , UISearchBarDele
     
     ///Alamofire
     func LoadLocations(){
-        
-        let cm = ConnectionManager(action :"selectloc")
-        Alamofire.request(cm.getURL()).responseJSON{ response in
-            print(cm.getURL())
-            if let locationsJSON = response.result.value {
-                //let locationArray:Dictionary = locationsJSON as! Dictionary<String,Any>
-                let json =  locationsJSON as! NSArray
-                for locationOBJECT in json{
-                    
-                    print (locationOBJECT)
-                    let Slocation = locationOBJECT as! Dictionary<String, Any>
-                    let slat = Slocation["lat"] as! String
-                    let slng = Slocation["lng"] as! String
-                    let wifi_pass = Slocation["wifi_pass"] as! String
-                    let desc_loc = Slocation["desc_loc"] as! String
-                    let img = Slocation["img"] as! String
-                    let MAC = Slocation["MAC"] as Any
-                    let id = Slocation["id_loc"] as! String
-                    let nblike = Slocation["nblike"] as! String
-                    let nbdislike = Slocation["nbdislike"] as! String
-                    let ssid = Slocation["ssid"] as! String
-                    let loc_name = Slocation["loc_name"] as! String
-                    //print(id)
-                    let w = Wifi(id_loc: id, desc_loc: desc_loc, wifi_pass: wifi_pass, lat: slat, lng: slng, img: img, mac: MAC , nblike: nblike , nbdislike: nbdislike,ssid: ssid , loc_name:loc_name)
-                    
-                    self.previewDemoData.append(w)
-                    self.descTable.append(desc_loc)
-                    print("hhhh")
+        if Reachability.isConnectedToNetwork(){
+            let cm = ConnectionManager(action :"selectloc")
+            Alamofire.request(cm.getURL()).responseJSON{ response in
+                print(cm.getURL())
+                if let locationsJSON = response.result.value {
+                    //let locationArray:Dictionary = locationsJSON as! Dictionary<String,Any>
+                    let json =  locationsJSON as! NSArray
+                    for locationOBJECT in json{
+                        
+                        print (locationOBJECT)
+                        let Slocation = locationOBJECT as! Dictionary<String, Any>
+                        let slat = Slocation["lat"] as! String
+                        let slng = Slocation["lng"] as! String
+                        let wifi_pass = Slocation["wifi_pass"] as! String
+                        let desc_loc = Slocation["desc_loc"] as! String
+                        let img = Slocation["img"] as! String
+                        let MAC = Slocation["MAC"] as Any
+                        let id = Slocation["id_loc"] as! String
+                        let nblike = Slocation["nblike"] as! String
+                        let nbdislike = Slocation["nbdislike"] as! String
+                        let ssid = Slocation["ssid"] as! String
+                        let loc_name = Slocation["loc_name"] as! String
+                        //print(id)
+                        let w = Wifi(id_loc: id, desc_loc: desc_loc, wifi_pass: wifi_pass, lat: slat, lng: slng, img: img, mac: MAC , nblike: nblike , nbdislike: nbdislike,ssid: ssid , loc_name:loc_name)
+                        
+                        self.previewDemoData.append(w)
+                        self.descTable.append(desc_loc)
+                        print("hhhh")
+                    }
+                    print(self.previewDemoData)
+                    self.showMarker()
                 }
-                print(self.previewDemoData)
-                self.showMarker()
-                
-                
             }
+        }else{
+            self.view.makeToast("No internet found 😞")
         }
     }
     

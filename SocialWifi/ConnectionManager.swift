@@ -16,7 +16,6 @@ class ConnectionManager  {
     
     init(action:String) {
         self.action = action
-        
     }
     
     func getURL() -> String{

@@ -30,14 +30,20 @@ class VCProfile: UIViewController, UITableViewDelegate,UITableViewDataSource {
     
     @IBAction func tabAction(_ sender: Any) {
         self.listOfWifi.removeAll()
+        self.offlineData.removeAll()
         self.tvListWifis.reloadData()
         if tabController.selectedSegmentIndex == 0 {
-            LoadAdds()
+            
+            if Reachability.isConnectedToNetwork(){
+               LoadAdds()
+            }else {
+                self.view.makeToast("No internet found 😞")
+            }
         }else {
              if Reachability.isConnectedToNetwork(){
                 LoadFavs()
              }else {
-                print ("no internet")
+               
                 self.view.makeToast("No internet found 😞")
                 let fetchrequest:NSFetchRequest<WifiDB> = WifiDB.fetchRequest()
                 do{
@@ -141,13 +147,18 @@ class VCProfile: UIViewController, UITableViewDelegate,UITableViewDataSource {
                     let loc_name = Slocation["loc_name"] as! String
                     //print(id)
                     let w = Wifi(id_loc: id, desc_loc: desc_loc, wifi_pass: wifi_pass, lat: slat, lng: slng, img: img, mac: MAC , nblike: nblike , nbdislike: nbdislike,ssid: ssid , loc_name:loc_name)
+                    
                     let offlineW = WifiDB(context: PersistenceService.context)
                     offlineW.id = id
-                    offlineW.img = "wifihotspot"
+                    offlineW.img = desc_loc
                     offlineW.ssid = ssid
                     offlineW.pw = wifi_pass
                     offlineW.lat = slat
                     offlineW.lng = slng
+                    offlineW.name = loc_name
+                    offlineW.likes = nblike
+                    offlineW.dislikes = nbdislike
+                    
                     PersistenceService.saveContext()
                     self.listOfWifi.append(w)
                     self.tvListWifis.reloadData()
@@ -192,6 +203,18 @@ class VCProfile: UIViewController, UITableViewDelegate,UITableViewDataSource {
                 destination.ssid = wifi.ssid
                 destination.id = wifi.id_loc
                 
+            }else{
+                let wifi = self.offlineData[indexPath.row]
+                destination.lat = wifi.lat
+                destination.lng = wifi.lng
+                
+                destination.disc = wifi.img
+                destination.pw = wifi.pw
+                destination.loc_name = wifi.name
+                destination.nblike = wifi.likes
+                destination.nbdislike = wifi.dislikes
+                destination.ssid = wifi.ssid
+                destination.id = wifi.id
             }
             
             self.present(destination, animated: true)
@@ -232,12 +255,15 @@ class VCProfile: UIViewController, UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellWifi = tableView.dequeueReusableCell(withIdentifier: "cellWifi", for: indexPath) as! TVCWifi
-        //cellWifi.cellView.layer.cornerRadius = cellWifi.frame.height / 2
-        cellWifi.SetWifi(wifi: listOfWifi[indexPath.row])
-        
-        
-        return cellWifi
+         let cellWifi = tableView.dequeueReusableCell(withIdentifier: "cellWifi", for: indexPath) as! TVCWifi
+        if Reachability.isConnectedToNetwork(){
+   
+            cellWifi.SetWifi(wifi: listOfWifi[indexPath.row])
+    
+        }else{
+             cellWifi.SetWifi(wifi: offlineData[indexPath.row])
+        }
+          return cellWifi
     }
     
     public  func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {

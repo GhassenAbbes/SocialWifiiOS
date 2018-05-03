@@ -30,10 +30,22 @@ class TVCWifi: UITableViewCell {
         self.laWifiDislike.text = wifi.nbdislike
         self.laWifiPassword.text = wifi.wifi_pass
         self.laWifiLike.text = wifi.nblike
-        self.lazyImage.showWithSpinner(imageView: ivWifiImage, url: wifi.img)
+        if wifi.img != "null"{
+           self.lazyImage.showWithSpinner(imageView: ivWifiImage, url: wifi.img)
+        }else{
+            ivWifiImage.image = #imageLiteral(resourceName: "wifihotspot")
+        }
+        
     }
     
-    
+    func SetWifi(wifi:WifiDB){
+        self.laWifiDesc.text = wifi.img
+        self.laWifiSsid.text = wifi.ssid
+        self.laWifiDislike.text = wifi.dislikes
+        self.laWifiPassword.text = wifi.pw
+        self.laWifiLike.text = wifi.likes
+        ivWifiImage.image = #imageLiteral(resourceName: "wifihotspot")
+    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

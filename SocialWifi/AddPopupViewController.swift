@@ -123,7 +123,7 @@ class AddPopupViewController: UIViewController, UIImagePickerControllerDelegate,
     ///Alamofire
     func AddWifi(){
         
-        let cm = ConnectionManager(action :"addlocios&desc=\(self.laDesc.text ?? "")&pw=\(self.PWText.text ?? "")&lat=\(self.lat ?? "")&lng=\(self.lng ?? "")&img=\(self.ImageUrl )&ssid=\(self.SSIDText.text ?? "")&loc_name=\(self.labLocName.text ?? "")")
+        let cm = ConnectionManager(action :"addlocios&desc=\(self.laDesc.text ?? "")&pw=\(self.PWText.text ?? "")&lat=\(self.lat ?? "")&lng=\(self.lng ?? "")&img=\(self.ImageUrl )&ssid=\(self.SSIDText.text ?? "")&loc_name=\(self.labLocName.text ?? "")&id_user=\(FBUserShare.getFBId())")
         
         //let url = "http://192.168.1.7/android/services.php?action=addloc&desc=\(self.SSIDText.text ?? "")&pw=\(self.PWText.text ?? "")&lat=\(self.lat ?? "")&lng=\(self.lng ?? "")&img=null"
         print ("url = \(cm.getURL())")
@@ -132,7 +132,7 @@ class AddPopupViewController: UIViewController, UIImagePickerControllerDelegate,
             if     response.result.isSuccess{
                 self.dismiss(animated: true)
             }else{
-                self.view.makeToast("the wifi couldn't be added :(")
+                self.view.makeToast("the wifi couldn't be added 😞")
             }
             
         }

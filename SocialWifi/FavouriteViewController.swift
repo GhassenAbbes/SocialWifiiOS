@@ -100,7 +100,8 @@ class FavouriteViewController: UIViewController, UITableViewDataSource,UITableVi
 //            }catch{
 //
 //            }
-            self.view.makeToast("No internet found :(")
+            self.view.makeToast("No internet found 😞")
+
         }
     }
 //    func deleteAction(at indexPath: IndexPath) -> UIContextualAction{
@@ -195,9 +196,12 @@ class FavouriteViewController: UIViewController, UITableViewDataSource,UITableVi
             cell.PWlbl.text = wifi.wifi_pass
             //cell.FavImage.image = #imageLiteral(resourceName: "restaurant1")
             //self.get_image(wifi.img, cell.FavImage)
+        if wifi.img != "null"{
             self.lazyImage.showWithSpinner(imageView:cell.FavImage, url:wifi.img)
-
-            cell.FavImage.layer.cornerRadius = cell.FavImage.frame.height / 2
+        }else{
+            cell.FavImage.image = #imageLiteral(resourceName: "wifihotspot")
+        }
+            //cell.FavImage.layer.cornerRadius = cell.FavImage.frame.height / 2
        
         return cell
     }

@@ -72,7 +72,11 @@ class VCWifiDetail: UIViewController ,GMSPlacePickerViewControllerDelegate{
         laLikes.text = self.nblike
         laLocName.text = self.loc_name
         laWifiDesc.text = self.disc
-        self.lazyImage.showWithSpinner(imageView:UIWifiImage, url:self.img!)
+        if self.img! != "null"{
+            self.lazyImage.showWithSpinner(imageView:UIWifiImage, url:self.img!)
+        }else{
+            UIWifiImage.image = #imageLiteral(resourceName: "wifihotspot")
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -212,7 +216,7 @@ class VCWifiDetail: UIViewController ,GMSPlacePickerViewControllerDelegate{
                         if     response.result.isSuccess{
                             self.view.makeToast("the favourite has been added")
                         }else{
-                            self.view.makeToast("the favourite couldn't be added :(")
+                            self.view.makeToast("the favourite couldn't be added 😞")
                         }
                         
                     }

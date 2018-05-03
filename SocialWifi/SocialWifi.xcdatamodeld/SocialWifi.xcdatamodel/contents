@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13240" systemVersion="16G1212" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13240" systemVersion="16G1314" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="WifiDB" representedClassName="WifiDB" syncable="YES">
+        <attribute name="dislikes" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="img" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lat" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="likes" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lng" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="pw" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="ssid" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="WifiDB" positionX="-63" positionY="-18" width="128" height="135"/>
+        <element name="WifiDB" positionX="-63" positionY="-18" width="128" height="180"/>
     </elements>
 </model>
