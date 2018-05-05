@@ -40,7 +40,7 @@ class VCLogin: UIViewController, FBSDKLoginButtonDelegate{
                     self.fbuser.fb_gender = fbDetails["gender"] as! String
                     self.fbuser.fb_email = fbDetails["email"] as! String
                     self.fbuser.fb_access_token = FBSDKAccessToken.current().tokenString
-                    self.sharedFBId(idFB: self.fbuser.fb_id)
+                    FBUserShare.putFB(FB: self.fbuser)
                     //FBUserShare.putFB(FB: self.fbuser)
                     
                     self.AddUser(fbuser: self.fbuser)
@@ -70,9 +70,7 @@ class VCLogin: UIViewController, FBSDKLoginButtonDelegate{
     
     @IBAction func BTLogin(_ sender: UIButton) {
         let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
-        if((FBSDKAccessToken.current()) != nil){
-            self.performSegue(withIdentifier: "Main", sender: self)
-        }else {
+        if((FBSDKAccessToken.current()) == nil){
             fbLoginManager.logIn(withReadPermissions: ["email"], from: self, handler: { (result, error) -> Void in
                 if error != nil {
                     NSLog("Process error")
@@ -82,26 +80,10 @@ class VCLogin: UIViewController, FBSDKLoginButtonDelegate{
                 }
                 else {
                     NSLog("Logged in")
-                    self.getFBUserData()
                 }
             })
         }
-    }
-    
-    func sharedFBId (idFB:String){
-        let preferences = UserDefaults.standard
-        //        _ = preferences.setValue(FB.fb_email, forKey: "id")
-        //        _ = preferences.setValue(FB.fb_email, forKey: "email")
-        //        _ = preferences.setValue(FB.fb_first_name, forKey: "name")
-        //        _ = preferences.setValue(FB.fb_last_name, forKey: "lastname")
-        //        _ = preferences.setValue(FB.fb_profile_pic, forKey: "photo")
-        _ = preferences.setValue(idFB, forKey: "idFacebook")
-        //  Save to disk
-        let didSave = preferences.synchronize()
-        
-        if !didSave {
-            print("Couldn't save (I've never seen this happen in real world testing")
-        }
+        self.getFBUserData()
     }
     
     func AddUser(fbuser:FBUser){

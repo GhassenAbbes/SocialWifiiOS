@@ -9,8 +9,8 @@
 import Foundation
 
 class ConnectionManager  {
-    let ip = "http://192.168.1.3/"
-    let path =  "android/services.php?action="
+    let ip = "http://41.226.11.243:10080/"
+    let path =  "socialwifi/android/services.php?action="
     var action :String
     
     

@@ -13,6 +13,7 @@ target 'SocialWifi' do
     pod 'Toast-Swift'
     pod 'Firebase/Core'
     pod 'Firebase/Storage'
+    pod 'Firebase/Messaging'
     pod 'NVActivityIndicatorView'
 end
 

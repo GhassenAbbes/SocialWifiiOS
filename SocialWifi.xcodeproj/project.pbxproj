@@ -28,6 +28,7 @@
 		39F47CE32082473000BAD6EF /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F47CE22082473000BAD6EF /* Reachability.swift */; };
 		39F47CE92082704B00BAD6EF /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F47CE82082704B00BAD6EF /* PersistenceService.swift */; };
 		8500385E208FB7C4008754A0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8500385D208FB7C4008754A0 /* ViewController.swift */; };
+		855E9222209D4212007B3AF8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 855E9221209D4212007B3AF8 /* GoogleService-Info.plist */; };
 		8594D7E220744B2D00F4C27D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594D7E120744B2D00F4C27D /* AppDelegate.swift */; };
 		8594D7E720744B2D00F4C27D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8594D7E520744B2D00F4C27D /* Main.storyboard */; };
 		8594D7EA20744B2D00F4C27D /* SocialWifi.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8594D7E820744B2D00F4C27D /* SocialWifi.xcdatamodeld */; };
@@ -48,7 +49,6 @@
 		2B58524B5920E6B6AFCB241E /* Pods_SocialWifi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialWifi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		393391F920993394001F91CA /* WifiDBCoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiDBCoreDataProperties.swift; sourceTree = "<group>"; };
 		393391FA20993394001F91CA /* WifiDBCoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiDBCoreDataClass.swift; sourceTree = "<group>"; };
-		393391FB20993394001F91CA /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		393391FE20993AFA001F91CA /* AddPopupControllerView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddPopupControllerView.storyboard; sourceTree = "<group>"; };
 		3933920020994543001F91CA /* Map.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
 		39339202209A4508001F91CA /* WifiDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WifiDetail.storyboard; sourceTree = "<group>"; };
@@ -69,6 +69,8 @@
 		39F47CE82082704B00BAD6EF /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
 		787A6D489B05868AA1CB42B9 /* Pods-SocialWifi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialWifi.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialWifi/Pods-SocialWifi.release.xcconfig"; sourceTree = "<group>"; };
 		8500385D208FB7C4008754A0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		855E9221209D4212007B3AF8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		855E9223209D439C007B3AF8 /* SocialWifi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SocialWifi.entitlements; sourceTree = "<group>"; };
 		8594D7DE20744B2D00F4C27D /* SocialWifi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialWifi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8594D7E120744B2D00F4C27D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8594D7E620744B2D00F4C27D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -120,7 +122,8 @@
 		8594D7E020744B2D00F4C27D /* SocialWifi */ = {
 			isa = PBXGroup;
 			children = (
-				393391FB20993394001F91CA /* GoogleService-Info.plist */,
+				855E9223209D439C007B3AF8 /* SocialWifi.entitlements */,
+				855E9221209D4212007B3AF8 /* GoogleService-Info.plist */,
 				393391FA20993394001F91CA /* WifiDBCoreDataClass.swift */,
 				393391F920993394001F91CA /* WifiDBCoreDataProperties.swift */,
 				8594D7E120744B2D00F4C27D /* AppDelegate.swift */,
@@ -213,6 +216,11 @@
 					8594D7DD20744B2D00F4C27D = {
 						CreatedOnToolsVersion = 9.0.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -241,6 +249,7 @@
 			files = (
 				8594D7EF20744B2D00F4C27D /* LaunchScreen.storyboard in Resources */,
 				3933920120994543001F91CA /* Map.storyboard in Resources */,
+				855E9222209D4212007B3AF8 /* GoogleService-Info.plist in Resources */,
 				8594D7EC20744B2D00F4C27D /* Assets.xcassets in Resources */,
 				393391FF20993AFA001F91CA /* AddPopupControllerView.storyboard in Resources */,
 				8594D7E720744B2D00F4C27D /* Main.storyboard in Resources */,
@@ -269,6 +278,7 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/LSDialogViewController/LSDialogViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -284,6 +294,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LSDialogViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -503,11 +514,12 @@
 			baseConfigurationReference = FB7CE6060F8740BD12E136CC /* Pods-SocialWifi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SocialWifi/SocialWifi.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 58L5J9GFCL;
+				DEVELOPMENT_TEAM = G96V29LG5G;
 				INFOPLIST_FILE = SocialWifi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.esprit.SocialWifi;
+				PRODUCT_BUNDLE_IDENTIFIER = tn.esprit.socialwifi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -519,11 +531,12 @@
 			baseConfigurationReference = 787A6D489B05868AA1CB42B9 /* Pods-SocialWifi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SocialWifi/SocialWifi.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 58L5J9GFCL;
+				DEVELOPMENT_TEAM = G96V29LG5G;
 				INFOPLIST_FILE = SocialWifi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.esprit.SocialWifi;
+				PRODUCT_BUNDLE_IDENTIFIER = tn.esprit.socialwifi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
