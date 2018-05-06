@@ -26,6 +26,21 @@ class FBUserShare {
         }
     }
     
+    class func putToken(token:String){
+        let preferences = UserDefaults.standard
+        
+        _ = preferences.setValue(token, forKey: "token")
+        //  Save to disk
+        let didSave = preferences.synchronize()
+        
+        if !didSave {
+            print("Couldn't save (I've never seen this happen in real world testing")
+        }
+    }
+    class func getTokenDevice() -> String{
+        let preferences = UserDefaults.standard
+        return preferences.string(forKey: "token")!
+    }
     class func getFBName() -> String{
         let preferences = UserDefaults.standard
         return preferences.string(forKey: "name")!

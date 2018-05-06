@@ -44,7 +44,7 @@ class AddPopupViewController: UIViewController, UIImagePickerControllerDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addGestureRecognizer(gesture)
-        
+        self.hideKeyboardWhenTappedAround() 
         imagePicked.backgroundColor = UIColor.brown
         // Do any additional setup after loading the view.
     }
@@ -138,5 +138,17 @@ class AddPopupViewController: UIViewController, UIImagePickerControllerDelegate,
         }
     }
     
+}
+
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }
 

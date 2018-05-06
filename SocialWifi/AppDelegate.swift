@@ -27,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         //***Firebase Configuration****
         FirebaseApp.configure()
+      
         if #available(iOS 10.0, *) {
             // For iOS 10 display notification (sent via APNS)
             UNUserNotificationCenter.current().delegate = self
@@ -82,14 +83,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         PersistenceService.saveContext()
     }
     
-    @objc func refereshToken(notification:NSNotification){
-        let token = InstanceID.instanceID().fcmToken
-        print("TokenFirebase : \(String(describing: token))")
-        FBHandler()
-    }
-    
     func FBHandler(){
         Messaging.messaging().shouldEstablishDirectChannel = true
+        let token:String = InstanceID.instanceID().token()!
+        FBUserShare.putToken(token: token)
+        print("TokenFirebase : \(token)")
     }
 }
 

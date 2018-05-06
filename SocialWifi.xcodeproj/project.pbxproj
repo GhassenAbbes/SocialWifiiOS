@@ -27,8 +27,8 @@
 		39F47CE12080F92800BAD6EF /* FavouriteMapStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39F47CE02080F92800BAD6EF /* FavouriteMapStoryboard.storyboard */; };
 		39F47CE32082473000BAD6EF /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F47CE22082473000BAD6EF /* Reachability.swift */; };
 		39F47CE92082704B00BAD6EF /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F47CE82082704B00BAD6EF /* PersistenceService.swift */; };
+		54E90293209E508A00A36AB2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 54E90292209E508A00A36AB2 /* GoogleService-Info.plist */; };
 		8500385E208FB7C4008754A0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8500385D208FB7C4008754A0 /* ViewController.swift */; };
-		855E9222209D4212007B3AF8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 855E9221209D4212007B3AF8 /* GoogleService-Info.plist */; };
 		8594D7E220744B2D00F4C27D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594D7E120744B2D00F4C27D /* AppDelegate.swift */; };
 		8594D7E720744B2D00F4C27D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8594D7E520744B2D00F4C27D /* Main.storyboard */; };
 		8594D7EA20744B2D00F4C27D /* SocialWifi.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8594D7E820744B2D00F4C27D /* SocialWifi.xcdatamodeld */; };
@@ -67,9 +67,9 @@
 		39F47CE02080F92800BAD6EF /* FavouriteMapStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FavouriteMapStoryboard.storyboard; sourceTree = "<group>"; };
 		39F47CE22082473000BAD6EF /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		39F47CE82082704B00BAD6EF /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
+		54E90292209E508A00A36AB2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		787A6D489B05868AA1CB42B9 /* Pods-SocialWifi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialWifi.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialWifi/Pods-SocialWifi.release.xcconfig"; sourceTree = "<group>"; };
 		8500385D208FB7C4008754A0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		855E9221209D4212007B3AF8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		855E9223209D439C007B3AF8 /* SocialWifi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SocialWifi.entitlements; sourceTree = "<group>"; };
 		8594D7DE20744B2D00F4C27D /* SocialWifi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialWifi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8594D7E120744B2D00F4C27D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -122,8 +122,8 @@
 		8594D7E020744B2D00F4C27D /* SocialWifi */ = {
 			isa = PBXGroup;
 			children = (
+				54E90292209E508A00A36AB2 /* GoogleService-Info.plist */,
 				855E9223209D439C007B3AF8 /* SocialWifi.entitlements */,
-				855E9221209D4212007B3AF8 /* GoogleService-Info.plist */,
 				393391FA20993394001F91CA /* WifiDBCoreDataClass.swift */,
 				393391F920993394001F91CA /* WifiDBCoreDataProperties.swift */,
 				8594D7E120744B2D00F4C27D /* AppDelegate.swift */,
@@ -249,7 +249,7 @@
 			files = (
 				8594D7EF20744B2D00F4C27D /* LaunchScreen.storyboard in Resources */,
 				3933920120994543001F91CA /* Map.storyboard in Resources */,
-				855E9222209D4212007B3AF8 /* GoogleService-Info.plist in Resources */,
+				54E90293209E508A00A36AB2 /* GoogleService-Info.plist in Resources */,
 				8594D7EC20744B2D00F4C27D /* Assets.xcassets in Resources */,
 				393391FF20993AFA001F91CA /* AddPopupControllerView.storyboard in Resources */,
 				8594D7E720744B2D00F4C27D /* Main.storyboard in Resources */,

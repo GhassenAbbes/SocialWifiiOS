@@ -39,9 +39,9 @@ class VCLogin: UIViewController, FBSDKLoginButtonDelegate{
                     self.fbuser.fb_last_name = fbDetails["last_name"] as! String
                     self.fbuser.fb_gender = fbDetails["gender"] as! String
                     self.fbuser.fb_email = fbDetails["email"] as! String
-                    self.fbuser.fb_access_token = FBSDKAccessToken.current().tokenString
+                    self.fbuser.fb_access_token = FBUserShare.getTokenDevice()
                     FBUserShare.putFB(FB: self.fbuser)
-                    //FBUserShare.putFB(FB: self.fbuser)
+                    FBUserShare.putFB(FB: self.fbuser)
                     
                     self.AddUser(fbuser: self.fbuser)
                     self.performSegue(withIdentifier: "Main", sender: self)
