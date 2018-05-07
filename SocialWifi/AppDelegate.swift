@@ -85,9 +85,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func FBHandler(){
         Messaging.messaging().shouldEstablishDirectChannel = true
-        let token:String = InstanceID.instanceID().token()!
-        FBUserShare.putToken(token: token)
-        print("TokenFirebase : \(token)")
+        if let  token:String = InstanceID.instanceID().token()  {
+            FBUserShare.putToken(token: token)
+            print("TokenFirebase : \(token)")
+        }
     }
 }
 

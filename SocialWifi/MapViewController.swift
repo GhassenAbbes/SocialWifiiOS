@@ -42,7 +42,8 @@ class MapViewController: UIViewController, UITextFieldDelegate , UISearchBarDele
     var selectedWifi:Wifi?
     var previewDemoData = [Wifi]()
     var descTable = [String]()
-    
+    lazy var lazyImage:LazyImage = LazyImage()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,8 +76,9 @@ class MapViewController: UIViewController, UITextFieldDelegate , UISearchBarDele
     func showMarker(){
         for i in 0..<self.previewDemoData.count {
             let marker = GMSMarker()
-            let customMarker = CustomMarkerView(frame: CGRect(x: 0, y: 0, width: customMarkerWidth, height: customMarkerHeight), image:#imageLiteral(resourceName: "freewifi"), borderColor: UIColor.darkGray, tag: i)
+            let customMarker = CustomMarkerView(frame: CGRect(x: 0, y: 0, width: customMarkerWidth, height: customMarkerHeight), image:#imageLiteral(resourceName: "markerwifi2"), borderColor: UIColor.darkGray, tag: i)
             marker.iconView=customMarker
+            //marker.icon = #imageLiteral(resourceName: "markerwifi2")
             marker.position = CLLocationCoordinate2D(latitude: Double(self.previewDemoData[i].lat)!, longitude: Double(self.previewDemoData[i].lng)!)
             marker.title = self.previewDemoData[i].ssid
             marker.snippet = self.previewDemoData[i].wifi_pass
@@ -161,42 +163,42 @@ class MapViewController: UIViewController, UITextFieldDelegate , UISearchBarDele
         }
     }
     
-    func get_image(_ url_str:String, _ imageView:UIImageView)
-    {
-        
-        let url:URL = URL(string: url_str)!
-        let session = URLSession(configuration: .default)
-        
-        let getImageFromUrl = session.dataTask(with: url) { (data, response, error) in
-            
-            //if there is any error
-            if let e = error {
-                //displaying the message
-                print("Error Occurred: \(e)")
-                
-            } else {
-                //in case of now error, checking wheather the response is nil or not
-                if (response as? HTTPURLResponse) != nil {
-                    
-                    //checking if the response contains an image
-                    if let imageData = data {
-                        
-                        //getting the image
-                        let image = UIImage(data: imageData)
-                        
-                        //displaying the image
-                        imageView.image = image
-                        
-                    } else {
-                        print("Image file is currupted")
-                    }
-                } else {
-                    print("No response from server")
-                }
-            }
-        }
-        getImageFromUrl.resume()
-    }
+//    func get_image(_ url_str:String, _ imageView:UIImageView)
+//    {
+//
+//        let url:URL = URL(string: url_str)!
+//        let session = URLSession(configuration: .default)
+//
+//        let getImageFromUrl = session.dataTask(with: url) { (data, response, error) in
+//
+//            //if there is any error
+//            if let e = error {
+//                //displaying the message
+//                print("Error Occurred: \(e)")
+//
+//            } else {
+//                //in case of now error, checking wheather the response is nil or not
+//                if (response as? HTTPURLResponse) != nil {
+//
+//                    //checking if the response contains an image
+//                    if let imageData = data {
+//
+//                        //getting the image
+//                        let image = UIImage(data: imageData)
+//
+//                        //displaying the image
+//                        imageView.image = image
+//
+//                    } else {
+//                        print("Image file is currupted")
+//                    }
+//                } else {
+//                    print("No response from server")
+//                }
+//            }
+//        }
+//        getImageFromUrl.resume()
+//    }
     
     //    func initGoogleMaps() {
     //        let camera = GMSCameraPosition.camera(withLatitude: 28.7041, longitude: 77.1025, zoom: 17.0)
@@ -288,6 +290,7 @@ class MapViewController: UIViewController, UITextFieldDelegate , UISearchBarDele
         self.mapView.settings.myLocationButton=true
         self.mapView.isMyLocationEnabled=true
         mapView.settings.allowScrollGesturesDuringRotateOrZoom=true
+        
         self.viewformap.addSubview(self.mapView)
         //        self.mapView.topAnchor.constraint(equalTo: view.topAnchor).isActive=true
         //        self.mapView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive=true
@@ -415,7 +418,12 @@ class MapViewController: UIViewController, UITextFieldDelegate , UISearchBarDele
 //
     
     
-    
+    let imgViewforpreview: UIImageView = {
+        let v=UIImageView()
+        v.image=#imageLiteral(resourceName: "wifihotspot")
+        v.translatesAutoresizingMaskIntoConstraints=false
+        return v
+    }()
 }
 
 // maps functions
@@ -425,9 +433,8 @@ extension MapViewController: GMSMapViewDelegate{
         guard let customMarkerView = marker.iconView as? CustomMarkerView else { return false }
         let img = customMarkerView.img!
         let customMarker = CustomMarkerView(frame: CGRect(x: 0, y: 0, width: customMarkerWidth, height: customMarkerHeight), image: img, borderColor: UIColor.white, tag: customMarkerView.tag)
-        
+       
         marker.iconView = customMarker
-        
         
         return false
     }
@@ -437,12 +444,13 @@ extension MapViewController: GMSMapViewDelegate{
         
         guard let customMarkerView = marker.iconView as? CustomMarkerView else { return nil }
         let data = previewDemoData[customMarkerView.tag]
+        
         locationPreviewView.setData(title: data.ssid,img: data.img ,price: data.wifi_pass)
         
         
         return locationPreviewView
     }
-    
+  
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
         marker.tracksInfoWindowChanges = true
         guard let customMarkerView = marker.iconView as? CustomMarkerView else { return }

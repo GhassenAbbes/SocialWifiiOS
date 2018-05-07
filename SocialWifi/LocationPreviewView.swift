@@ -21,7 +21,7 @@ class LocationPreviewView: UIView {
     lazy var lazyImage:LazyImage = LazyImage()
 
     func setData(title: String, img: String,  price: String) {
-        lblTitle.text = title
+        lblTitle.text = "SSID: "+title
         //imgView.image = img
         if img == "null"{
             imgView.image = #imageLiteral(resourceName: "wifihotspot")
@@ -47,7 +47,7 @@ class LocationPreviewView: UIView {
         lblTitle.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 0).isActive=true
         lblTitle.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: 0).isActive=true
         lblTitle.heightAnchor.constraint(equalToConstant: 35).isActive=true
-        lblTitle.addSubview(imgsignal)
+        //lblTitle.addSubview(imgsignal)
         addSubview(imgView)
         imgView.leftAnchor.constraint(equalTo: leftAnchor, constant: 5).isActive=true
         imgView.topAnchor.constraint(equalTo: lblTitle.bottomAnchor).isActive=true
@@ -63,7 +63,7 @@ class LocationPreviewView: UIView {
         imglocker.centerYAnchor.constraint(equalTo: imgView.centerYAnchor).isActive=true
         imglocker.widthAnchor.constraint(equalToConstant: 40).isActive=true
         imglocker.heightAnchor.constraint(equalToConstant: 40).isActive=true
-        imglocker.leftAnchor.constraint(equalTo: lblPrice.rightAnchor).isActive=true
+        imglocker.rightAnchor.constraint(equalTo: lblPrice.leftAnchor).isActive=true
         //        addSubview(btnFav)
         //        btnFav.bottomAnchor.constraint(equalTo: imgView.bottomAnchor, constant: -10).isActive=true
         //        btnFav.rightAnchor.constraint(equalTo: imgView.rightAnchor, constant: -10).isActive=true
@@ -92,7 +92,7 @@ class LocationPreviewView: UIView {
     }()
     let imglocker: UIImageView = {
         let v=UIImageView()
-        v.image=#imageLiteral(resourceName: "unlocked2")
+        v.image=#imageLiteral(resourceName: "key1")
         v.translatesAutoresizingMaskIntoConstraints=false
         return v
     }()

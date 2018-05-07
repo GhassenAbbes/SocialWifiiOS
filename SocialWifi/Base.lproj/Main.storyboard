@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EgA-Mm-n4s">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EgA-Mm-n4s">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Baseline standard spacing" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -97,7 +97,7 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q9p-Eq-k2n">
                                                             <rect key="frame" x="100" y="8" width="210" height="100"/>
                                                             <subviews>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="thumb up" translatesAutoresizingMaskIntoConstraints="NO" id="vsF-5u-Fhb">
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="thumbup" translatesAutoresizingMaskIntoConstraints="NO" id="vsF-5u-Fhb">
                                                                     <rect key="frame" x="11" y="80" width="20" height="20"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="25" id="971-ba-a38"/>
@@ -107,7 +107,7 @@
                                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="25" id="qkb-Tb-c3v"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wifi-signal" translatesAutoresizingMaskIntoConstraints="NO" id="Hmo-XV-tY2">
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wifi-signal" translatesAutoresizingMaskIntoConstraints="NO" id="Hmo-XV-tY2">
                                                                     <rect key="frame" x="10" y="30" width="21" height="21"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="21" id="1a3-A8-gtf"/>
@@ -172,7 +172,7 @@
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="thumb down" translatesAutoresizingMaskIntoConstraints="NO" id="coe-DT-Hnp">
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="thumbdown" translatesAutoresizingMaskIntoConstraints="NO" id="coe-DT-Hnp">
                                                                     <rect key="frame" x="178" y="82" width="20" height="20"/>
                                                                     <color key="tintColor" red="0.3411764706" green="0.33333333329999998" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <constraints>
@@ -293,23 +293,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background_login" translatesAutoresizingMaskIntoConstraints="NO" id="oiO-Ad-MDJ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_login" translatesAutoresizingMaskIntoConstraints="NO" id="oiO-Ad-MDJ">
                                 <rect key="frame" x="0.0" y="20" width="320" height="548"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logowifi" translatesAutoresizingMaskIntoConstraints="NO" id="xrS-vQ-VGT">
-                                <rect key="frame" x="40" y="98" width="240" height="226"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="Ojt-Ap-Kww"/>
-                                    <constraint firstAttribute="height" constant="226" id="Zfz-Fc-1O9"/>
-                                </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YdO-l0-aAb">
                                 <rect key="frame" x="0.0" y="508" width="320" height="60"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="3wt-pQ-SyR"/>
-                                    <constraint firstAttribute="width" constant="375" id="J58-mC-WIr"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="17"/>
                                 <state key="normal" title="Login with Facebook">
@@ -322,21 +313,43 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoText" translatesAutoresizingMaskIntoConstraints="NO" id="Xcf-xb-hRN">
                                 <rect key="frame" x="40" y="352" width="240" height="72"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="6Pj-wI-61Q"/>
                                     <constraint firstAttribute="height" constant="72" id="kJS-FK-Ymm"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logowifi" translatesAutoresizingMaskIntoConstraints="NO" id="xrS-vQ-VGT">
+                                <rect key="frame" x="40" y="98" width="240" height="226"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="226" id="Zfz-Fc-1O9"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="ASf-Jy-mKo" firstAttribute="trailing" secondItem="xrS-vQ-VGT" secondAttribute="trailing" constant="40" id="5QT-fm-qqQ"/>
+                            <constraint firstItem="xrS-vQ-VGT" firstAttribute="leading" secondItem="ASf-Jy-mKo" secondAttribute="leading" constant="40" id="6e2-p5-vdT"/>
                             <constraint firstItem="YdO-l0-aAb" firstAttribute="bottom" secondItem="ASf-Jy-mKo" secondAttribute="bottom" id="9ue-ca-7Yh"/>
                             <constraint firstItem="YdO-l0-aAb" firstAttribute="leading" secondItem="ASf-Jy-mKo" secondAttribute="leading" id="CpZ-fa-gEF"/>
                             <constraint firstItem="xrS-vQ-VGT" firstAttribute="leading" secondItem="ASf-Jy-mKo" secondAttribute="leading" constant="40" id="EGt-Ti-h7L"/>
+                            <constraint firstItem="YdO-l0-aAb" firstAttribute="leading" secondItem="ASf-Jy-mKo" secondAttribute="leading" id="H0Z-Hd-cVr"/>
+                            <constraint firstItem="oiO-Ad-MDJ" firstAttribute="top" secondItem="ASf-Jy-mKo" secondAttribute="top" id="ISm-w7-zPD"/>
                             <constraint firstItem="YdO-l0-aAb" firstAttribute="top" secondItem="Xcf-xb-hRN" secondAttribute="bottom" constant="84" id="J9a-ej-bUB"/>
+                            <constraint firstItem="YdO-l0-aAb" firstAttribute="bottom" secondItem="ASf-Jy-mKo" secondAttribute="bottom" id="MTU-EJ-rQE"/>
+                            <constraint firstItem="Xcf-xb-hRN" firstAttribute="leading" secondItem="ASf-Jy-mKo" secondAttribute="leading" constant="40" id="Mdj-xF-0tC"/>
+                            <constraint firstItem="YdO-l0-aAb" firstAttribute="trailing" secondItem="ASf-Jy-mKo" secondAttribute="trailing" id="NBx-hW-Fsk"/>
+                            <constraint firstItem="xrS-vQ-VGT" firstAttribute="top" secondItem="ASf-Jy-mKo" secondAttribute="top" constant="78" id="R22-L0-l3d"/>
+                            <constraint firstItem="ASf-Jy-mKo" firstAttribute="trailing" secondItem="xrS-vQ-VGT" secondAttribute="trailing" constant="40" id="R6f-Hf-Rgj"/>
                             <constraint firstItem="Xcf-xb-hRN" firstAttribute="top" secondItem="xrS-vQ-VGT" secondAttribute="bottom" constant="28" id="RnO-22-2Mc"/>
+                            <constraint firstItem="ASf-Jy-mKo" firstAttribute="trailing" secondItem="Xcf-xb-hRN" secondAttribute="trailing" constant="40" id="UDk-jk-o5K"/>
                             <constraint firstItem="YdO-l0-aAb" firstAttribute="trailing" secondItem="ASf-Jy-mKo" secondAttribute="trailing" id="VMv-Kz-lyQ"/>
+                            <constraint firstItem="YdO-l0-aAb" firstAttribute="top" secondItem="Xcf-xb-hRN" secondAttribute="bottom" constant="84" id="VQ6-S7-8dZ"/>
+                            <constraint firstItem="oiO-Ad-MDJ" firstAttribute="leading" secondItem="ASf-Jy-mKo" secondAttribute="leading" id="VX5-ay-KF1"/>
+                            <constraint firstItem="ASf-Jy-mKo" firstAttribute="trailing" secondItem="Xcf-xb-hRN" secondAttribute="trailing" constant="40" id="ZQD-Sp-KhE"/>
                             <constraint firstItem="ASf-Jy-mKo" firstAttribute="trailing" secondItem="Xcf-xb-hRN" secondAttribute="trailing" constant="40" id="dJT-Sp-P1L"/>
                             <constraint firstItem="Xcf-xb-hRN" firstAttribute="leading" secondItem="ASf-Jy-mKo" secondAttribute="leading" constant="40" id="g0w-6k-ZSG"/>
+                            <constraint firstItem="oiO-Ad-MDJ" firstAttribute="trailing" secondItem="ASf-Jy-mKo" secondAttribute="trailing" id="hz4-In-7Fl"/>
+                            <constraint firstItem="Xcf-xb-hRN" firstAttribute="top" secondItem="xrS-vQ-VGT" secondAttribute="bottom" constant="28" id="qg9-jn-Oyu"/>
+                            <constraint firstItem="oiO-Ad-MDJ" firstAttribute="bottom" secondItem="ASf-Jy-mKo" secondAttribute="bottom" id="tb1-Ow-ozH"/>
+                            <constraint firstItem="xrS-vQ-VGT" firstAttribute="leading" secondItem="ASf-Jy-mKo" secondAttribute="leading" constant="40" id="w16-ZI-FCK"/>
                             <constraint firstItem="ASf-Jy-mKo" firstAttribute="trailing" secondItem="xrS-vQ-VGT" secondAttribute="trailing" constant="40" id="yJm-AC-yte"/>
                             <constraint firstItem="xrS-vQ-VGT" firstAttribute="top" secondItem="ASf-Jy-mKo" secondAttribute="top" constant="78" id="zTF-7Q-wRX"/>
                         </constraints>
@@ -433,8 +446,8 @@
         <image name="logoText" width="675" height="200"/>
         <image name="logowifi" width="1000" height="1000"/>
         <image name="man-user" width="16" height="16"/>
-        <image name="thumb down" width="24" height="24"/>
-        <image name="thumb up" width="24" height="24"/>
+        <image name="thumbdown" width="16" height="16"/>
+        <image name="thumbup" width="16" height="16"/>
         <image name="wifi-signal" width="24" height="24"/>
     </resources>
 </document>
