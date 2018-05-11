@@ -57,10 +57,11 @@ class VCWifiDetail: UIViewController ,GMSPlacePickerViewControllerDelegate{
     var loc_name:String?
     var disc:String?
     lazy var lazyImage:LazyImage = LazyImage()
+    @IBOutlet weak var btnChangePassword: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        btnChangePassword.isHidden = true
         var style = ToastStyle()
         style.messageColor = .orange
         style.messageAlignment = .center
@@ -72,11 +73,22 @@ class VCWifiDetail: UIViewController ,GMSPlacePickerViewControllerDelegate{
         laLikes.text = self.nblike
         laLocName.text = self.loc_name
         laWifiDesc.text = self.disc
+        
+        let a:Int! = Int(laLikes.text!) // firstText is UITextField
+        let b:Int! = Int(laUnlike.text!) // secondText is UITextField
+        
+        if a<b {
+            btnChangePassword.isHidden = false
+        }
         if self.img! != "null"{
             self.lazyImage.showWithSpinner(imageView:UIWifiImage, url:self.img!)
         }else{
             UIWifiImage.image = #imageLiteral(resourceName: "wifihotspot")
         }
+    }
+    @IBAction func btChangePassword(_ sender: Any) {
+        self.performSegue(withIdentifier: "UpdatePassword", sender: self)
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -92,7 +104,13 @@ class VCWifiDetail: UIViewController ,GMSPlacePickerViewControllerDelegate{
         self.AddVote(tag: -1)
         
     }
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "UpdatePassword" {
+            let popup = segue.destination as! VCUpdatePassword
+            popup.id=self.id
+            
+        }
+    }
     
     
 //    func showToast(message : String) {
@@ -193,6 +211,12 @@ class VCWifiDetail: UIViewController ,GMSPlacePickerViewControllerDelegate{
                 self.laLikes.text = array[0] as? String
                 self.laUnlike.text = array[1] as? String
                 //self.showToast(message: "vote updated")
+                let a:Int! = Int(self.laLikes.text!) // firstText is UITextField
+                let b:Int! = Int(self.laUnlike.text!) // secondText is UITextField
+                
+                if a<b {
+                    self.btnChangePassword.isHidden = false
+                }
                 self.view.makeToast("vote updated")
             }else{
                 self.view.makeToast("vote couldn't be added 😞")

@@ -12,6 +12,7 @@
 		393391FF20993AFA001F91CA /* AddPopupControllerView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 393391FE20993AFA001F91CA /* AddPopupControllerView.storyboard */; };
 		3933920120994543001F91CA /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3933920020994543001F91CA /* Map.storyboard */; };
 		39339203209A4508001F91CA /* WifiDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39339202209A4508001F91CA /* WifiDetail.storyboard */; };
+		39586D5520A63C250051B498 /* VCUpdatePassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39586D5420A63C250051B498 /* VCUpdatePassword.swift */; };
 		398ED9A0207D6A0900A55C17 /* FavouritMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398ED99F207D6A0900A55C17 /* FavouritMapViewController.swift */; };
 		39BA6BFE2083E5DB0015E960 /* VCWifiDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BA6BFD2083E5DB0015E960 /* VCWifiDetail.swift */; };
 		39BA6C002083EEE00015E960 /* FBUserShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BA6BFF2083EEE00015E960 /* FBUserShare.swift */; };
@@ -52,6 +53,7 @@
 		393391FE20993AFA001F91CA /* AddPopupControllerView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddPopupControllerView.storyboard; sourceTree = "<group>"; };
 		3933920020994543001F91CA /* Map.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
 		39339202209A4508001F91CA /* WifiDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WifiDetail.storyboard; sourceTree = "<group>"; };
+		39586D5420A63C250051B498 /* VCUpdatePassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCUpdatePassword.swift; sourceTree = "<group>"; };
 		398ED99F207D6A0900A55C17 /* FavouritMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritMapViewController.swift; sourceTree = "<group>"; };
 		39BA6BFD2083E5DB0015E960 /* VCWifiDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCWifiDetail.swift; sourceTree = "<group>"; };
 		39BA6BFF2083EEE00015E960 /* FBUserShare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBUserShare.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				39BA6BFF2083EEE00015E960 /* FBUserShare.swift */,
 				85A12FEF208D526A00C357AB /* LazyImage.swift */,
 				393391FE20993AFA001F91CA /* AddPopupControllerView.storyboard */,
+				39586D5420A63C250051B498 /* VCUpdatePassword.swift */,
 				3933920020994543001F91CA /* Map.storyboard */,
 				39339202209A4508001F91CA /* WifiDetail.storyboard */,
 			);
@@ -370,6 +373,7 @@
 				39E4EEC2207D2A84003ED8D6 /* FavViewCell.swift in Sources */,
 				85CAB9E2207AB21300B6ABFC /* FBUser.swift in Sources */,
 				39BA6C002083EEE00015E960 /* FBUserShare.swift in Sources */,
+				39586D5520A63C250051B498 /* VCUpdatePassword.swift in Sources */,
 				85CAB9E8207AD00E00B6ABFC /* VCFriends.swift in Sources */,
 				8594F2C820968A75004DD3B6 /* VCProfile.swift in Sources */,
 				39E4EEBE207D2997003ED8D6 /* AddPopupViewController.swift in Sources */,
