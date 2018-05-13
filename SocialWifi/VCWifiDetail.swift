@@ -226,25 +226,20 @@ class VCWifiDetail: UIViewController ,GMSPlacePickerViewControllerDelegate{
     }
     
     func AddFavourit(){
+        
         print (self.userid)
         let cm = ConnectionManager(action :"addfavourite&id_user=\(self.userid )&id_loc=\(self.id! )")
-        let cmcheck = ConnectionManager(action :"checkfav&id_user=\(self.userid )&id_loc=\(self.id! )")
-        //let url = "http://192.168.1.7/android/services.php?action=addloc&desc=\(self.SSIDText.text ?? "")&pw=\(self.PWText.text ?? "")&lat=\(self.lat ?? "")&lng=\(self.lng ?? "")&img=null"
         print ("url = \(cm.getURL())")
-        
-        
-        
-        
-                    Alamofire.request(cm.getURL()).responseString{ response in
-                        print (response.result.isSuccess)
-                        if     response.result.isSuccess{
-                            self.view.makeToast("the favourite has been added")
-                        }else{
-                            self.view.makeToast("the favourite couldn't be added 😞")
-                        }
-                        
-                    }
-        }
+            Alamofire.request(cm.getURL()).responseString{ response in
+                print (response.result.isSuccess)
+                if     response.result.isSuccess{
+                    self.view.makeToast("the favourite has been added")
+                }else{
+                    self.view.makeToast("the favourite couldn't be added 😞")
+                }
+                
+            }
+    }
     
     
 }

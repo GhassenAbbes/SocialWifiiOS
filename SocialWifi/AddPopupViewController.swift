@@ -10,13 +10,14 @@ import UIKit
 import Alamofire
 import Toast_Swift
 import FirebaseStorage
+import NVActivityIndicatorView
 class AddPopupViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var lat:String?
     var lng:String?
     var ImageUrl:String = "null"
     var image:UIImage?
-    
+    let activityData = ActivityData()
     @IBOutlet weak var imagePicked: UIImageView!
     
     @IBOutlet weak var labLocName: UITextField!
@@ -99,13 +100,14 @@ class AddPopupViewController: UIViewController, UIImagePickerControllerDelegate,
     }
     
     func UploadImage(){
+        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
         // Get a reference to the storage service using the default Firebase App
         let storage = Storage.storage()
         
         // Create a storage reference from our storage service
         let storageRef = storage.reference()
         let imageData = UIImagePNGRepresentation(self.image!)
-        let imagePath = "ios/\(self.SSIDText.text!).jpg"//whatever you want
+        let imagePath = "\(self.SSIDText.text!).jpg"//whatever you want
         storageRef.child(imagePath).putData(imageData!,metadata:nil){
             (metadata, error) in
             if let error = error{
@@ -114,8 +116,9 @@ class AddPopupViewController: UIViewController, UIImagePickerControllerDelegate,
             else{
                 let downloadURL = metadata!.downloadURL()?.absoluteString
                 //print(downloadURL)
-                self.ImageUrl = downloadURL!
+                self.ImageUrl = downloadURL!.replacingOccurrences(of: "&", with: "%26", options: NSString.CompareOptions.literal, range:nil)
                 self.AddWifi()
+                NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
                 //do whatever you want...
             }
         }
@@ -124,8 +127,7 @@ class AddPopupViewController: UIViewController, UIImagePickerControllerDelegate,
     func AddWifi(){
         
         let cm = ConnectionManager(action :"addlocios&desc=\(self.laDesc.text ?? "")&pw=\(self.PWText.text ?? "")&lat=\(self.lat ?? "")&lng=\(self.lng ?? "")&img=\(self.ImageUrl )&ssid=\(self.SSIDText.text ?? "")&loc_name=\(self.labLocName.text ?? "")&id_user=\(FBUserShare.getFBId())")
-        
-        //let url = "http://192.168.1.7/android/services.php?action=addloc&desc=\(self.SSIDText.text ?? "")&pw=\(self.PWText.text ?? "")&lat=\(self.lat ?? "")&lng=\(self.lng ?? "")&img=null"
+    
         print ("url = \(cm.getURL())")
         Alamofire.request(cm.getURL()).responseString{ response in
             print (response.result.isSuccess)

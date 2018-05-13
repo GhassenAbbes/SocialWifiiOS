@@ -27,6 +27,13 @@ class VCProfile: UIViewController, UITableViewDelegate,UITableViewDataSource {
     lazy var lazyImage:LazyImage = LazyImage()
     var offlineData = [WifiDB]()
 
+    @IBAction func btLogout(_ sender: Any) {
+        let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
+        if((FBSDKAccessToken.current()) != nil){
+            fbLoginManager.logOut()
+            FBSDKAccessToken.setCurrent(nil)
+        }
+    }
     
     @IBAction func tabAction(_ sender: Any) {
         self.listOfWifi.removeAll()
@@ -78,16 +85,6 @@ class VCProfile: UIViewController, UITableViewDelegate,UITableViewDataSource {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    @IBAction func btLogout(_ sender: Any) {
-        let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
-        if((FBSDKAccessToken.current()) != nil){
-            fbLoginManager.logOut()
-            FBSDKAccessToken.setCurrent(nil)
-        }
-    }
-    
     
     func LoadAdds(){
         

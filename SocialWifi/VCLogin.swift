@@ -28,7 +28,7 @@ class VCLogin: UIViewController, FBSDKLoginButtonDelegate{
     }
     func getFBUserData(){
         if((FBSDKAccessToken.current()) != nil){
-            FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, first_name, last_name, gender, picture.type(small), email"]).start(completionHandler: { (connection, result, error) -> Void in
+            FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, first_name, last_name, gender, picture.type(large), email"]).start(completionHandler: { (connection, result, error) -> Void in
                 if (error == nil){
                     let fbDetails = result as! Dictionary<String, Any>
                     let picture = fbDetails["picture"] as! Dictionary<String, Any>
@@ -88,9 +88,9 @@ class VCLogin: UIViewController, FBSDKLoginButtonDelegate{
     
     func AddUser(fbuser:FBUser){
         
-        let url = "http://41.226.11.243:10080/socialwifi/android/services.php?action=updateFBUser&fb_id=\(fbuser.fb_id )&fb_first_name=\(fbuser.fb_first_name )&fb_last_name=\(fbuser.fb_last_name )&fb_email=\(fbuser.fb_email)&fb_gender=\(fbuser.fb_gender)&fb_profile_pic=\(fbuser.fb_profile_pic)&fb_access_token=\(fbuser.fb_access_token)"
-        print(url)
-        Alamofire.request(url).responseString{ response in
+        let cm = ConnectionManager(action :"updateFBUser&fb_id=\(fbuser.fb_id )&fb_first_name=\(fbuser.fb_first_name )&fb_last_name=\(fbuser.fb_last_name )&fb_email=\(fbuser.fb_email)&fb_gender=\(fbuser.fb_gender)&fb_profile_pic=\(fbuser.fb_profile_pic)&fb_access_token=\(fbuser.fb_access_token)")
+        print(cm.getURL())
+        Alamofire.request(cm.getURL()).responseString{ response in
             print (response.result.isSuccess)
             if response.result.isSuccess {
                 self.showToast(message: "User Added")
