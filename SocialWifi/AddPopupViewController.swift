@@ -46,7 +46,7 @@ class AddPopupViewController: UIViewController, UIImagePickerControllerDelegate,
         super.viewDidLoad()
         self.view.addGestureRecognizer(gesture)
         self.hideKeyboardWhenTappedAround() 
-        imagePicked.backgroundColor = UIColor.brown
+     
         // Do any additional setup after loading the view.
     }
     

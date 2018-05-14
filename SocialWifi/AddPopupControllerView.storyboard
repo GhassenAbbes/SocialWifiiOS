@@ -9,6 +9,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="CourierNewBold.ttf">
+            <string>CourierNewPS-BoldMT</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Add Popup View Controller-->
         <scene sceneID="8Si-Zc-rfm">
@@ -27,8 +32,8 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="39" id="x9c-7T-wbt"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                        <color key="textColor" red="0.61960784310000006" green="0.60784313729999995" blue="0.61568627450000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="22"/>
+                                        <color key="textColor" red="1" green="0.80000000000000004" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="highlightedColor" red="0.3411764706" green="0.33333333329999998" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YbO-St-BU2">
@@ -39,7 +44,7 @@
                                             <constraint firstAttribute="height" constant="30" id="kJG-xK-KHk"/>
                                             <constraint firstAttribute="width" constant="140" id="uQT-F9-wSs"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="20"/>
                                         <state key="normal" title="Save">
                                             <color key="titleColor" red="1" green="0.80000000000000004" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -47,7 +52,7 @@
                                             <action selector="SaveAction:" destination="omR-Au-Bak" eventType="touchUpInside" id="Zvb-q5-xsr"/>
                                         </connections>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IkK-4U-LKl">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gallery" translatesAutoresizingMaskIntoConstraints="NO" id="IkK-4U-LKl">
                                         <rect key="frame" x="0.0" y="38" width="284" height="119"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="119" id="PUy-w2-E8W"/>
@@ -98,7 +103,7 @@
                                             <constraint firstAttribute="height" constant="30" id="VSe-uq-qZa"/>
                                             <constraint firstAttribute="width" constant="140" id="cKx-ek-By7"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="20"/>
                                         <state key="normal" title="Cancel">
                                             <color key="titleColor" red="1" green="0.80000000000000004" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -178,4 +183,7 @@
             <point key="canvasLocation" x="741.60000000000002" y="76.911544227886068"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="gallery" width="512" height="512"/>
+    </resources>
 </document>

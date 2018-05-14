@@ -199,6 +199,11 @@ class VCWifiDetail: UIViewController ,GMSPlacePickerViewControllerDelegate{
 //        getImageFromUrl.resume()
 //    }
     
+    @IBAction func btShareFB(_ sender: Any) {
+        var content = FBSDKShareLinkContent()
+        content.contentURL = URL(string: "http://developers.facebook.com")
+        FBSDKShareDialog.show(from: self, with: content, delegate: nil)
+    }
     
     func AddVote(tag: Int) {
         let cm = ConnectionManager(action :"addvote&id_loc=\(self.id!)&id_user=\(self.userid )&rate=\(tag)")

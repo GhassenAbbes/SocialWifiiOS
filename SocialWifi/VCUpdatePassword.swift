@@ -15,7 +15,7 @@ class VCUpdatePassword: UIViewController {
     var id:String?
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.hideKeyboardWhenTappedAround()
         // Do any additional setup after loading the view.
     }
 
@@ -35,9 +35,25 @@ class VCUpdatePassword: UIViewController {
         Alamofire.request(cm.getURL()).responseString{ response in
             print (response.result.isSuccess)
             if     response.result.isSuccess{
+                self.PushNotif()
                 self.dismiss(animated: true)
             }else{
                 self.view.makeToast("the wifi couldn't be updated 😞")
+            }
+            
+        }
+    }
+    
+    func PushNotif(){
+        
+        let cm = ConnectionManager(action :"pushnotif&token=\(FBUserShare.getTokenDevice())&title=FavouriteWifiUpdated&body=yourfaverou")
+        print(cm.getURL())
+        Alamofire.request(cm.getURL()).responseString{ response in
+            print (response.result.isSuccess)
+            if response.result.isSuccess {
+                
+            }else{
+                
             }
             
         }
@@ -55,3 +71,4 @@ class VCUpdatePassword: UIViewController {
     */
 
 }
+
