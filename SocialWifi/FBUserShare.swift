@@ -37,6 +37,22 @@ class FBUserShare {
             print("Couldn't save (I've never seen this happen in real world testing")
         }
     }
+    
+    class func putLoc(ssid:String, password:String){
+        let preferences = UserDefaults.standard
+        
+        _ = preferences.setValue(ssid, forKey: "ssid")
+        //  Save to disk
+        let didSave = preferences.synchronize()
+        
+        if !didSave {
+            print("Couldn't save (I've never seen this happen in real world testing")
+        }
+    }
+    class func getSSID() -> String{
+        let preferences = UserDefaults.standard
+        return preferences.string(forKey: "ssid")!
+    }
     class func getTokenDevice() -> String{
         let preferences = UserDefaults.standard
         return preferences.string(forKey: "token")!

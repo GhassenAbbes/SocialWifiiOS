@@ -200,9 +200,13 @@ class VCWifiDetail: UIViewController ,GMSPlacePickerViewControllerDelegate{
 //    }
     
     @IBAction func btShareFB(_ sender: Any) {
-        var content = FBSDKShareLinkContent()
+        let content = FBSDKShareLinkContent()
         content.contentURL = URL(string: "http://developers.facebook.com")
         FBSDKShareDialog.show(from: self, with: content, delegate: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        FBUserShare.putLoc(ssid: self.ssid!, password: self.pw!)
     }
     
     func AddVote(tag: Int) {

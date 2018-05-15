@@ -46,7 +46,7 @@ class VCUpdatePassword: UIViewController {
     
     func PushNotif(){
         
-        let cm = ConnectionManager(action :"pushnotif&token=\(FBUserShare.getTokenDevice())&title=FavouriteWifiUpdated&body=yourfaverou")
+        let cm = ConnectionManager(action :"pushnotif&token=\(FBUserShare.getTokenDevice())&title=Favourite+Wifi+Updated&body=SSID:+\(FBUserShare.getSSID())+Password:+\(self.laPassword.text ?? "")")
         print(cm.getURL())
         Alamofire.request(cm.getURL()).responseString{ response in
             print (response.result.isSuccess)
