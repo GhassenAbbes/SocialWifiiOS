@@ -201,7 +201,7 @@ class VCWifiDetail: UIViewController ,GMSPlacePickerViewControllerDelegate{
     
     @IBAction func btShareFB(_ sender: Any) {
         let content = FBSDKShareLinkContent()
-        content.contentURL = URL(string: "http://developers.facebook.com")
+        content.contentURL = URL(string: "https://www.google.com/maps/@\(self.lat!),\(self.lng!),6z")
         FBSDKShareDialog.show(from: self, with: content, delegate: nil)
     }
     

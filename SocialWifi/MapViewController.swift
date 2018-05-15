@@ -47,6 +47,8 @@ class MapViewController: UIViewController, UITextFieldDelegate , UISearchBarDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+
         //   self.title = "Home"
         //self.view.backgroundColor = UIColor.white
         
@@ -72,6 +74,8 @@ class MapViewController: UIViewController, UITextFieldDelegate , UISearchBarDele
         //        initGoogleMaps()
         //
         //        txtFieldSearch.delegate=self
+        self.hideKeyboardWhenTappedAround()
+        
     }
     func showMarker(){
         for i in 0..<self.previewDemoData.count {
