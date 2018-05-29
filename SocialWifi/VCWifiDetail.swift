@@ -136,9 +136,9 @@ class VCWifiDetail: UIViewController ,GMSPlacePickerViewControllerDelegate{
         // Dismiss the place picker, as it cannot dismiss itself.
         viewController.dismiss(animated: true, completion: nil)
         
-        print("Place name \(place.name)")
-        print("Place address \(place.formattedAddress ?? "" )")
-        print("Place attributions \(place.attributions )")
+//        print("Place name \(place.name)")
+//        print("Place address \(place.formattedAddress ?? "" )")
+//        print("Place attributions \(place.attributions )")
        self.view.makeToast("You can Connect to this wifi from \(place.name)")
     }
     

@@ -188,7 +188,7 @@ extension FavouritMapViewController: GMSMapViewDelegate{
     
     func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
         
-        guard let customMarkerView = marker.iconView as? CustomMarkerView else { return nil }
+        //guard let customMarkerView = marker.iconView as? CustomMarkerView else { return nil }
        
         locationPreviewView.setData(title: self.desc_loc!,img: self.img! ,price: self.wifi_pass!)
         
@@ -199,7 +199,7 @@ extension FavouritMapViewController: GMSMapViewDelegate{
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
         marker.tracksInfoWindowChanges = true
         guard let customMarkerView = marker.iconView as? CustomMarkerView else { return }
-        let tag = customMarkerView.tag
+        _ = customMarkerView.tag
         locationTapped(pos: marker.position)
         //self.drawPath(startLocation: currentlocation, endLocation: marker.)
     }

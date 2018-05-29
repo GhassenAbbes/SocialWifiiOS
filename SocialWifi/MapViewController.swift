@@ -74,7 +74,6 @@ class MapViewController: UIViewController, UITextFieldDelegate , UISearchBarDele
         //        initGoogleMaps()
         //
         //        txtFieldSearch.delegate=self
-        self.hideKeyboardWhenTappedAround()
         
     }
     func showMarker(){

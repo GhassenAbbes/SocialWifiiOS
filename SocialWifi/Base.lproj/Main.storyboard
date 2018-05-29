@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EgA-Mm-n4s">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EgA-Mm-n4s">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Baseline standard spacing" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -56,7 +56,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="KuK-s7-ihY">
-                                <rect key="frame" x="23" y="197" width="275" height="29"/>
+                                <rect key="frame" x="82.5" y="197" width="155" height="29"/>
                                 <segments>
                                     <segment title="My adds"/>
                                     <segment title="Favourites"/>
@@ -250,7 +250,7 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kvo-9j-gHg">
-                                <rect key="frame" x="55" y="459" width="210" height="51"/>
+                                <rect key="frame" x="69" y="459" width="181" height="51"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="51" id="3ze-UZ-eFQ"/>
@@ -270,18 +270,18 @@
                         <constraints>
                             <constraint firstItem="Vdc-oz-kSF" firstAttribute="leading" secondItem="eo4-ay-1xe" secondAttribute="leading" constant="16" id="1rV-yR-tTL"/>
                             <constraint firstItem="eo4-ay-1xe" firstAttribute="trailing" secondItem="Vdc-oz-kSF" secondAttribute="trailing" constant="16" id="2Pl-ti-KD3"/>
+                            <constraint firstItem="Kvo-9j-gHg" firstAttribute="centerX" secondItem="i2e-JK-L4e" secondAttribute="centerX" id="6m4-nT-CYv"/>
                             <constraint firstItem="D1l-f8-e3j" firstAttribute="leading" secondItem="eo4-ay-1xe" secondAttribute="leading" constant="10" id="CgJ-d6-ajV"/>
                             <constraint firstItem="BuO-mp-M4P" firstAttribute="leading" secondItem="eo4-ay-1xe" secondAttribute="leading" id="Iir-68-8nl"/>
                             <constraint firstItem="eo4-ay-1xe" firstAttribute="trailing" secondItem="D1l-f8-e3j" secondAttribute="trailing" constant="9" id="JDC-GE-39I"/>
+                            <constraint firstItem="KuK-s7-ihY" firstAttribute="centerX" secondItem="i2e-JK-L4e" secondAttribute="centerX" id="SQx-hl-4R8"/>
                             <constraint firstItem="BoW-uy-f3v" firstAttribute="top" secondItem="eo4-ay-1xe" secondAttribute="top" id="Up2-xW-580"/>
                             <constraint firstItem="D1l-f8-e3j" firstAttribute="firstBaseline" secondItem="Vdc-oz-kSF" secondAttribute="baseline" constant="20" symbolType="layoutAnchor" id="Usa-vq-geV"/>
                             <constraint firstItem="pXZ-FU-iXh" firstAttribute="top" secondItem="KuK-s7-ihY" secondAttribute="bottom" constant="8" id="VAM-Ol-iGw"/>
                             <constraint firstItem="KuK-s7-ihY" firstAttribute="top" secondItem="D1l-f8-e3j" secondAttribute="bottom" constant="13" id="Vrd-5z-F11"/>
                             <constraint firstItem="pXZ-FU-iXh" firstAttribute="leading" secondItem="BuO-mp-M4P" secondAttribute="leading" id="XC0-vJ-TPG"/>
-                            <constraint firstItem="Kvo-9j-gHg" firstAttribute="leading" secondItem="eo4-ay-1xe" secondAttribute="leading" constant="55" id="Yeb-17-jfC"/>
                             <constraint firstItem="Kvo-9j-gHg" firstAttribute="centerX" secondItem="KuK-s7-ihY" secondAttribute="centerX" id="dZs-zf-2oF"/>
                             <constraint firstItem="pXZ-FU-iXh" firstAttribute="trailing" secondItem="BuO-mp-M4P" secondAttribute="trailing" id="g9L-g9-D6H"/>
-                            <constraint firstItem="eo4-ay-1xe" firstAttribute="trailing" secondItem="KuK-s7-ihY" secondAttribute="trailing" constant="22" id="jtX-CX-IwL"/>
                             <constraint firstItem="eo4-ay-1xe" firstAttribute="bottom" secondItem="pXZ-FU-iXh" secondAttribute="bottom" constant="68" id="mnO-Pb-DxL"/>
                             <constraint firstItem="Vdc-oz-kSF" firstAttribute="firstBaseline" secondItem="BoW-uy-f3v" secondAttribute="baseline" constant="23.5" symbolType="layoutAnchor" id="n7Y-5Z-7Bn"/>
                             <constraint firstItem="BuO-mp-M4P" firstAttribute="top" secondItem="i2e-JK-L4e" secondAttribute="top" id="oMl-yY-5KA"/>
@@ -289,7 +289,6 @@
                             <constraint firstItem="BoW-uy-f3v" firstAttribute="leading" secondItem="eo4-ay-1xe" secondAttribute="leading" constant="113" id="rGD-wF-dIj"/>
                             <constraint firstItem="eo4-ay-1xe" firstAttribute="trailing" secondItem="BoW-uy-f3v" secondAttribute="trailing" constant="113" id="vhu-pG-lBg"/>
                             <constraint firstItem="Kvo-9j-gHg" firstAttribute="bottom" secondItem="eo4-ay-1xe" secondAttribute="bottom" constant="-9" id="xsm-D4-HQ6"/>
-                            <constraint firstItem="KuK-s7-ihY" firstAttribute="leading" secondItem="eo4-ay-1xe" secondAttribute="leading" constant="23" id="yBb-BW-GS0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eo4-ay-1xe"/>
                     </view>
@@ -415,39 +414,9 @@
             </objects>
             <point key="canvasLocation" x="798" y="116"/>
         </scene>
-        <!--Friends-->
-        <scene sceneID="slq-RX-BPv">
-            <objects>
-                <viewController id="jvh-Av-ai0" customClass="VCFriends" customModule="SocialWifi" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="d0b-Kf-nH2">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fov-Cv-qVU">
-                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
-                                <items>
-                                    <navigationItem title="Friends" id="2PR-V4-olp"/>
-                                </items>
-                            </navigationBar>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Fov-Cv-qVU" firstAttribute="trailing" secondItem="t5Y-h0-RZI" secondAttribute="trailing" id="Qyj-46-8bK"/>
-                            <constraint firstItem="Fov-Cv-qVU" firstAttribute="leading" secondItem="t5Y-h0-RZI" secondAttribute="leading" id="xLg-R2-Wgv"/>
-                            <constraint firstItem="Fov-Cv-qVU" firstAttribute="top" secondItem="t5Y-h0-RZI" secondAttribute="top" id="yWl-C8-en6"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="t5Y-h0-RZI"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Friends" image="friends" id="0bI-I7-7rY"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bWL-Av-pu1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="951" y="1587"/>
-        </scene>
     </scenes>
     <resources>
         <image name="background_login" width="2638" height="4000"/>
-        <image name="friends" width="16" height="16"/>
         <image name="logoText" width="675" height="200"/>
         <image name="logowifi" width="1000" height="1000"/>
         <image name="man-user" width="16" height="16"/>
