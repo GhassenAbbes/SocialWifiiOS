@@ -68,7 +68,7 @@ class FavouritMapViewController: UIViewController {
     func showMarker(){
        
             let marker = GMSMarker()
-            let customMarker = CustomMarkerView(frame: CGRect(x: 0, y: 0, width: customMarkerWidth, height: customMarkerHeight), image:#imageLiteral(resourceName: "freewifi"), borderColor: UIColor.darkGray, tag: 0)
+            let customMarker = CustomMarkerView(frame: CGRect(x: 0, y: 0, width: customMarkerWidth, height: customMarkerHeight), image:#imageLiteral(resourceName: "markerwifi2"), borderColor: UIColor.darkGray, tag: 0)
             marker.iconView=customMarker
         marker.position = CLLocationCoordinate2D(latitude: Double(self.lat! )!, longitude: Double(self.lng!)!)
         marker.title = self.desc_loc
